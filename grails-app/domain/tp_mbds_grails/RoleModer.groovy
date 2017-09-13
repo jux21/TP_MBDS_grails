@@ -1,6 +1,6 @@
 package tp_mbds_grails
 
-class RoleModer extends Role {
+class RoleModer {
 
     static constraints = {
     }

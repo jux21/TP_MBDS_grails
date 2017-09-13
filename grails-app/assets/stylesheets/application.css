@@ -13,3 +13,7 @@
 *= require mobile
 *= require_self
 */
+
+body {
+  background:pink;
+}
