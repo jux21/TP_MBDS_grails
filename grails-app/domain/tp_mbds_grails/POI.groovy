@@ -2,13 +2,14 @@ package tp_mbds_grails
 
 class POI {
 
-    String nom;
-    def location = [];
-    def imageList = [];
-    String description;
-    static belongsTo = [group: Group]
+   // def location = [];
+   // def imageListPath = [];
+   // String description;
+    static belongsTo = POIsGroup
+    static hasMany = [groups:POIsGroup]
+    String name;
 
     static constraints = {
-        nom blank: false
+        name blank: false
     }
 }

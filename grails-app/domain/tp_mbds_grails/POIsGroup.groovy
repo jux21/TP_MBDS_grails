@@ -1,13 +1,12 @@
 package tp_mbds_grails
 
-class Group {
-
-    String name
+class POIsGroup {
 
     static hasMany = [pois:POI]
+    String name
 
     static constraints = {
-       nom blank: false
+       name blank: false
     }
 
 }
