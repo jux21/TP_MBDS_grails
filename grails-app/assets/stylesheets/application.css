@@ -17,3 +17,9 @@
 body {
   background:pink;
 }
+
+.connected_nav_menu {
+  position: absolute;
+  top:0;
+  right:0;
+}

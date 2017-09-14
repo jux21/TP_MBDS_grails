@@ -11,6 +11,11 @@ class POIsGroupController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured(['IS_AUTHENTICATED_FULLY'])
+    def list() {
+        render view:"/POIsGroup/list",model:[poisgroups:POIsGroup.list(params)]
+    }
+
+    @Secured(['IS_AUTHENTICATED_FULLY'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond POIsGroup.list(params), model:[POIsGroupCount: POIsGroup.count()]

@@ -11,6 +11,11 @@ class POIController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured(['IS_AUTHENTICATED_FULLY'])
+    def list() {
+        render view:"/POI/list",model:[pois:POI.list(params)]
+    }
+
+    @Secured(['IS_AUTHENTICATED_FULLY'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond POI.list(params), model:[POICount: POI.count()]
