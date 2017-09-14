@@ -5,11 +5,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        //  if(Group.count == 0) {
-        POIsGroup group = new POIsGroup(name :'my first group')
-                .addToPois(new POI(name:'my first poi'))
-                .save()
-        // }
+
         SecUser adminUser = new SecUser(username: "adminUser", password: "adminUser", enabled: true).save(flush:true)
         SecUser moderatorUser = new SecUser(username: "moderatorUser", password: "moderatorUser", enabled: true).save(flush:true)
         SecUser utilUser = new SecUser(username: "utilUser", password: "utilUser", enabled: true).save(flush:true)
@@ -23,6 +19,12 @@ class BootStrap {
         println(SecUser.count())
         println(SecRole.count())
         println(SecUserSecRole.count())
+
+        //  if(Group.count == 0) {
+        POIsGroup group = new POIsGroup(name :'my first group')
+                .addToPois(new POI(name:'my first poi'))
+                .save()
+        // }
         
     }
     def destroy = {

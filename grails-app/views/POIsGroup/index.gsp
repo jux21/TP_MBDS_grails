@@ -19,7 +19,6 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:table collection="${POIsGroupList}" />
-
             <div class="pagination">
                 <g:paginate total="${POIsGroupCount ?: 0}" />
             </div>
