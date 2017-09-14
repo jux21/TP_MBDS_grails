@@ -13,6 +13,11 @@ class SecRole implements Serializable {
 
 	String authority
 
+	String getAuthority()
+	{
+		return this.authority
+	}
+
 	static constraints = {
 		authority nullable: false, blank: false, unique: true
 	}
