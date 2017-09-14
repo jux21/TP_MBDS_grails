@@ -12,7 +12,7 @@ class POIsGroupController {
 
     @Secured(['IS_AUTHENTICATED_FULLY'])
     def list() {
-        render view:"/POIsGroup/list",model:[poisgroups:POIsGroup.list(params)]
+        render view:"/POIsGroup/list",model:[poisgroups:POIsGroup.list(fetch:[pois:"eager", images:"eager"])]
     }
 
     @Secured(['IS_AUTHENTICATED_FULLY'])

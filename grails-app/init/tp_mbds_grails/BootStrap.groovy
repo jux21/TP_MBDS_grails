@@ -1,5 +1,5 @@
 package tp_mbds_grails
-
+//Debug apache tomcat : netstat -aon | find ":80" | find "LISTENING"
 
 class BootStrap {
 
@@ -21,9 +21,10 @@ class BootStrap {
         println(SecUserSecRole.count())
 
         //  if(Group.count == 0) {
-        POIsGroup group = new POIsGroup(name :'my first group')
-                .addToPois(new POI(name:'my first poi'))
-                .save()
+        POIGroupImage myfirstimage = new POIGroupImage(path:'apple-touch-icon-retina.png')
+        POI myfirstpoi = new POI(name:'my first poi', latitude:0, longitude:0, description: 'my first poi description')
+        myfirstpoi.addToImages(myfirstimage)
+        POIsGroup group = new POIsGroup(name :'my first group').addToPois(myfirstpoi).save()
         // }
         
     }
