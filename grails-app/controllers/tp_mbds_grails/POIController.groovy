@@ -1,5 +1,7 @@
 package tp_mbds_grails
 
+import grails.plugin.springsecurity.annotation.Secured
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -8,19 +10,23 @@ class POIController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['IS_AUTHENTICATED_FULLY'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond POI.list(params), model:[POICount: POI.count()]
     }
 
+    @Secured(['IS_AUTHENTICATED_FULLY'])
     def show(POI POI) {
         respond POI
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         respond new POI(params)
     }
 
+    @Secured(['ROLE_ADMIN'])
     @Transactional
     def save(POI POI) {
         if (POI == null) {
@@ -46,10 +52,12 @@ class POIController {
         }
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit(POI POI) {
         respond POI
     }
 
+    @Secured(['ROLE_ADMIN'])
     @Transactional
     def update(POI POI) {
         if (POI == null) {
@@ -75,6 +83,7 @@ class POIController {
         }
     }
 
+    @Secured(['ROLE_ADMIN'])
     @Transactional
     def delete(POI POI) {
 
@@ -95,6 +104,7 @@ class POIController {
         }
     }
 
+    @Secured(['IS_AUTHENTICATED_FULLY'])
     protected void notFound() {
         request.withFormat {
             form multipartForm {
