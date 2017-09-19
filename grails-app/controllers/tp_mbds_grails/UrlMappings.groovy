@@ -9,7 +9,8 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/auth") // Page d'accueil du projet
+        "/"(view:"/index")
+        "/index"(view:"/index")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

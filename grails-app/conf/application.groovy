@@ -5,16 +5,16 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'tp_mbds_grails.Se
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'tp_mbds_grails.SecUserSecRole'
 grails.plugin.springsecurity.authority.className = 'tp_mbds_grails.SecRole'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	[pattern: '/',               access: ['permitAll']],
-	[pattern: '/error',          access: ['permitAll']],
-	[pattern: '/index',          access: ['permitAll']],
-	[pattern: '/indexAdmin.gsp',      access: ['permitAll']],
-	[pattern: '/shutdown',       access: ['permitAll']],
-	[pattern: '/assets/**',      access: ['permitAll']],
-	[pattern: '/**/js/**',       access: ['permitAll']],
-	[pattern: '/**/css/**',      access: ['permitAll']],
-	[pattern: '/**/images/**',   access: ['permitAll']],
-	[pattern: '/**/favicon.ico', access: ['permitAll']]
+	[pattern: '/',               access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/error',          access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/index',          access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/indexAdmin.gsp',      access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/shutdown',       access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/assets/**',      access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/**/js/**',       access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/**/css/**',      access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/**/images/**',   access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/**/favicon.ico', access: ['IS_AUTHENTICATED_FULLY']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
@@ -25,4 +25,5 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
 
