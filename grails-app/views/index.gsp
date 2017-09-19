@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <p>Connecté</p> ${params.usernameParameter} KKK
+    <p>Bienvenu ${sec.username()} </p>
     <div id="content" role="main">
         <section class="row colset-2-its">
             <h1>Welcome to Grails</h1>
