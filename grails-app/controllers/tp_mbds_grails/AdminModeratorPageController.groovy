@@ -13,12 +13,16 @@ class AdminModeratorPageController {
         for(def role in roles)
         {
             if(role.getAuthority()=="ROLE_ADMIN")
-                render(view: "indexAdmin")
+                render(view: "/login/indexAdmin")
             else
                 render(view: "indexModerator")
         }
 
 
+    }
+
+    def ici() {
+        println("IIIICCCCI")
     }
 
 
