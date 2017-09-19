@@ -18,7 +18,18 @@
 <table>
     <tr><th>Nom</th><th>Points d'intêret associés</th><th>Images</th></tr>
     <g:each in="${poisgroups}" var="cust">
-        <tr><td>${cust.name}</td></tr>
+        <tr>
+            <td>${cust.name}</td>
+            <td>
+                <g:each in="${cust.pois}" var="custcust">
+                    ${custcust.name}
+                </g:each></td>
+            <td>
+                <g:each in="${cust.images}" var="custcust">
+                    <g:img dir="images" file="${custcust.path}" width="40" height="40"/>
+                </g:each>
+            </td>
+        </tr>
     </g:each>
 </table>
 
