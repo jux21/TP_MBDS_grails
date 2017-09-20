@@ -15,23 +15,30 @@
 
 <body>
 
-<table>
-    <tr><th>Nom</th><th>Latitude</th><th>Longitude</th><th>Groupes associés</th><th>Description</th><th>Images</th><th>Actions</th></tr>
+<table class="highlight bordered">
+    <thead>
+    <tr><th>Nom</th><th>Lat.</th><th>Long.</th><th>Groupes associés</th><th>Description</th><th>Images</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
     <g:each in="${pois}" var="cust">
         <tr>
             <td><g:link class="show" action="show" resource="${cust}">${cust.name}</g:link></td>
             <td>${cust.latitude}</td>
             <td>${cust.longitude}</td>
             <td>
-                <g:each in="${cust.groups}" var="custcust">
-                    ${custcust.name}
-                </g:each>
+                <ul>
+                    <g:each in="${cust.groups}" var="custcust">
+                            <li>${custcust.name}</li>
+                    </g:each>
+                </ul>
             </td>
             <td>${cust.description}</td>
             <td>
+                <ul>
                 <g:each in="${cust.images}" var="custcust">
-                    <g:img dir="images" file="${custcust.path}" width="40" height="40"/>
+                    <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
                 </g:each>
+                </ul>
 
             </td>
             <td>
@@ -45,6 +52,7 @@
             </td>
         </tr>
     </g:each>
+    </tbody>
 </table>
 
 <div class="nav" role="navigation">
