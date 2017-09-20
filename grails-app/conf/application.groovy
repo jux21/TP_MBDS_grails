@@ -8,7 +8,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['IS_AUTHENTICATED_FULLY']],
 	[pattern: '/error',          access: ['IS_AUTHENTICATED_FULLY']],
 	[pattern: '/index',          access: ['IS_AUTHENTICATED_FULLY']],
-	[pattern: '/indexAdmin.gsp',      access: ['IS_AUTHENTICATED_FULLY']],
 	[pattern: '/shutdown',       access: ['IS_AUTHENTICATED_FULLY']],
 	[pattern: '/assets/**',      access: ['IS_AUTHENTICATED_FULLY']],
 	[pattern: '/**/js/**',       access: ['IS_AUTHENTICATED_FULLY']],

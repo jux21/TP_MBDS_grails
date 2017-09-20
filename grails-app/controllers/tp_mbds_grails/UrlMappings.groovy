@@ -11,6 +11,7 @@ class UrlMappings {
 
         "/"(view:"/index")
         "/index"(view:"/index")
+        "/POI/index" (controller:"POIController", action:"list" )
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
