@@ -2,6 +2,8 @@ package tp_mbds_grails
 
 import grails.plugin.springsecurity.annotation.Secured
 import javafx.scene.Group
+import org.springframework.web.multipart.MultipartFile
+import sun.misc.IOUtils
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -47,6 +49,10 @@ class POIController {
             return
         }
 
+        saveImage()
+        POIGroupImage yolo = new POIGroupImage(path:"narcos.jpg")
+        POI.addToImages(yolo)
+
         POI.save flush:true
 
         request.withFormat {
@@ -56,6 +62,11 @@ class POIController {
             }
             '*' { respond POI, [status: CREATED] }
         }
+    }
+
+    def saveImage()
+    {
+        //new File("/Applications/MAMP/htdocs/images/narcos.jpg").bytes = new java.net.URL("http://www.tvqc.com/wp-content/uploads/2016/07/narcos-season-2.jpg").bytes
     }
 
     @Secured(['ROLE_ADMIN'])
