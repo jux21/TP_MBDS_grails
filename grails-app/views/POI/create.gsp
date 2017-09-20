@@ -6,15 +6,7 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#create-POI" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
         <div id="create-POI" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -26,12 +18,37 @@
             </ul>
             </g:hasErrors>
             <g:form resource="${this.POI}" method="POST">
-                <fieldset class="form">
-                    <f:all bean="POI"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
+                <div class="row">
+                <h4>Créer un point d'intêret</h4>
+                <div class="col s12 m12 l12">
+                    <label>Nom</label>
+                    <input type="text" name="name" value="" required="" id="name">
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Description</label>
+                    <input type="text" name="description" value="" id="description">
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Géolocalisation</label>
+                    <div><input type="text" name="latitude" value="0,0" required="" id="latitude"></div>
+                    <div><input type="text" name="longitude" value="0,0" required="" id="longitude"></div>
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Images</label>
+                     <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Image</span>
+                        <input id="fileupload" type="file" name="fileupload">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input   class="file-path validate" type="text" name = "images">
+                      </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Groupes associés</label>
+                </div>
+                <a class="waves-effect waves-light btn right"><input type="submit" name="create" class="save" value="Create" id="create"></a>
             </g:form>
 
         </div>

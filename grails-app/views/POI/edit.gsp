@@ -7,15 +7,7 @@
     </head>
     <body>
         <a href="#edit-POI" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
         <div id="edit-POI" class="content scaffold-edit" role="main">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -26,14 +18,50 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.POI}" method="PUT">
-                <g:hiddenField name="version" value="${this.POI?.version}" />
-                <fieldset class="form">
-                    <f:all bean="POI"/>
-                </fieldset>
-                <fieldset class="buttons">
+            <g:form resource="${this.POI}" method="POST">
+                <div class="row">
+                <h4>Modifier le POI ${this.POI.name}</h4>
+                <div class="col s12 m12 l12">
+                    <label>Nom</label>
+                    <input value="${this.POI.name}" type="text" name="name" value="" required="" id="name" >
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Description</label>
+                    <input  value="${this.POI.description}" type="text" name="description" value="" id="description"">
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Géolocalisation</label>
+                    <div><input value="${this.POI.latitude}" type="text" name="latitude" required="" id="latitude"></div>
+                    <div><input value="${this.POI.longitude}" type="text" name="longitude" required="" id="longitude"></div>
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Images</label>
+                    <g:each in="${this.POI.images}" var="custcust">
+                        <ul>
+                            <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
+                        </ul>
+                    </g:each>
+                     <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Ajouter une image</span>
+                        <input id="fileupload" type="file" name="fileupload">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input   class="file-path validate" type="text" >
+                      </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12">
+                    <label>Groupes associés</label>
+                    <g:each in="${this.POI.groups}" var="custcust">
+                        <ul>
+                            <li>${custcust.name}</li>
+                        </ul>
+                    </g:each>
+                </div>
+                <a class="waves-effect waves-light btn right">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
+                </a>
             </g:form>
         </div>
     </body>

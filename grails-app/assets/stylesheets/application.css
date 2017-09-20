@@ -12,14 +12,75 @@
 *= require main
 *= require mobile
 *= require_self
+*= require materialize.min
 */
 
-body {
-  background:pink;
+/*Import Google Icon Font */
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
 
-.connected_nav_menu {
-  position: absolute;
-  top:0;
-  right:0;
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }
+
+
+/* Custom CSS */
+
+body {
+    background: #efefef;
+}
+
+main {
+    margin-top: 70px;
+}
+
+main h1 {
+    font-size: 3rem;
+}
+
+.navbar-default, .navbar-static-top {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    top:0;
+    width:100%;
+    background: #577276;
+    color:black;
+}
+
+.side-nav.fixed {
+    top: 70px;
+    background: pink;
+}
+
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+.row, .col {
+    margin-top:15px;
+}
+
