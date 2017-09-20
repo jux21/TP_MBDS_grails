@@ -45,10 +45,14 @@
 
 body {
     background: #efefef;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
     margin-top: 70px;
+    flex: 1 0 auto;
 }
 
 main h1 {
@@ -63,6 +67,24 @@ main h1 {
     width:100%;
     background: #577276;
     color:black;
+}
+
+.card .card-title {
+    font-size: 17px;
+}
+
+#modal1 .row, #modal1 .row .col {
+    padding: 0;
+}
+
+#modal1 .row .col {
+    padding-right:10px;
+}
+
+a {
+    text-decoration: none;
+    background: none;
+    background-color: rgba(0,0,0,0);
 }
 
 .side-nav.fixed {
@@ -82,5 +104,9 @@ header, main, footer {
 
 .row, .col {
     margin-top:15px;
+}
+
+footer {
+    margin-top: 15px;
 }
 

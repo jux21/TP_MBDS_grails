@@ -60,10 +60,29 @@
     <g:layoutBody/>
 </main>
 
-<footer>
-    <div class="footer" role="contentinfo"></div>
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
     </div>
 </footer>
 
@@ -91,10 +110,51 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h4>Objectifs réalisés</h4>
-        <ul>
-            <li>Création d'un POI</li>
-        </ul>
+        <h5>Objectifs réalisés</h5>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="section">
+                    <h5>Init</h5>
+                    <div class="divider"></div>
+                    <div class="section">
+                        <h6>POI et POIsGroup</h6>
+                        <p>Création de 10 POI et 10 POIsGroup dans une boucle for</p>
+                    </div>
+
+                    <div class="divider"></div>
+                    <h6>Utilisation de Spring Security</h6>
+                    <h5>Session</h5>
+                    <div class="divider"></div>
+                    <h6>Utilisation de Spring Security</h6>
+                    <p>Page d'authentification OK</p>
+                </div>
+                <div class="divider"></div>
+            </div>
+            <div class="col s12 m12 l12">
+                <h5>CRUD</h5>
+                <div class="divider"></div>
+                <h6>Create</h6>
+                <div class="divider"></div>
+                <h6>POI Create</h6>
+                <p>Création d'un POI avec Nom, Description OK.</p>
+                <p>Association avec 1 groupe OK.</p>
+                <div class="divider"></div>
+                <h6>POIsGroup Create</h6>
+                <p>Création d'un POIsGroup avec Nom OK.</p>
+                <p>Association avec 1 ou plusieurs POI OK.</p>
+                <div class="divider"></div>
+                <h6>SecUser Create</h6>
+                <p>...</p>
+                <h6>Ajout d'image</h6>
+                <p>Téléchargement d'image sur Apache OK</p>
+                <div class="divider"></div>
+                <h5>Bonus</h5>
+                <div class="divider">...</div>
+                <h6>...</h6>
+                <p>...</p>
+            </div>
+            <div class="divider"></div>
+        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>

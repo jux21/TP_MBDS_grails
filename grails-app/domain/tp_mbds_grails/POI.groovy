@@ -5,8 +5,8 @@ class POI {
     static belongsTo = POIsGroup
     static hasMany = [groups: POIsGroup, images:POIGroupImage]
     String name;
-    float latitude;
-    float longitude;
+    Double latitude;
+    Double longitude;
     String description;
 
     static constraints = {

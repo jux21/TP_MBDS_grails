@@ -20,12 +20,27 @@ class BootStrap {
         println(SecRole.count())
         println(SecUserSecRole.count())
 
-        //  if(Group.count == 0) {
-        POIGroupImage myfirstimage = new POIGroupImage(path:'apple-touch-icon-retina.png')
-        POI myfirstpoi = new POI(name:'my first poi', latitude:0, longitude:0, description: 'my first poi description')
-        myfirstpoi.addToImages(myfirstimage)
-        POIsGroup group = new POIsGroup(name :'my first group').addToPois(myfirstpoi).save()
-        // }
+        POI myfirstpoi
+        POIGroupImage myfirstimage
+        POIsGroup group
+
+        for (def i = 0; i <10; i++) {
+
+            myfirstimage = new POIGroupImage(path:'apple-touch-icon-retina.png')
+            myfirstpoi = new POI(name:'my poi'+i, latitude:0, longitude:0, description: 'my poi description'+i)
+            myfirstpoi.addToImages(myfirstimage)
+            group = new POIsGroup(name :'my group'+i).addToPois(myfirstpoi).save()
+            group.addToImages(myfirstimage).save()
+
+            myfirstimage = null
+            myfirstpoi = null
+            group = null
+
+        }
+
+
+
+
         
     }
     def destroy = {

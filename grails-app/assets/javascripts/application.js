@@ -27,3 +27,5 @@ $(".button-collapse").sideNav();
 //$('.collapsible').collapsible();
 
 $('.modal').modal();
+
+$('select').material_select();

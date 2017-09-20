@@ -60,7 +60,7 @@ class POIController {
 
     @Secured(['ROLE_ADMIN'])
     def edit(POI POI) {
-        respond POI
+        respond POI, model:[groups:POIsGroup.list()]
     }
 
     @Secured(['ROLE_ADMIN'])

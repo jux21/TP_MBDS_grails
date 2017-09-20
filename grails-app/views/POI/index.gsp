@@ -19,7 +19,6 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:table collection="${POIList}" />
-
             <div class="pagination">
                 <g:paginate total="${POICount ?: 0}" />
             </div>

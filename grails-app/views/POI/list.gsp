@@ -35,9 +35,9 @@
             <td>${cust.description}</td>
             <td>
                 <ul>
-                <g:each in="${cust.images}" var="custcust">
-                    <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
-                </g:each>
+                    <g:each in="${cust.images}" var="custcust">
+                        <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
+                    </g:each>
                 </ul>
 
             </td>

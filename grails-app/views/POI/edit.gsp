@@ -27,12 +27,12 @@
                 </div>
                 <div class="col s12 m12 l12">
                     <label>Description</label>
-                    <input  value="${this.POI.description}" type="text" name="description" value="" id="description"">
+                    <input  value="${this.POI.description}" type="text" name="description" value="" id="description">
                 </div>
                 <div class="col s12 m12 l12">
                     <label>Géolocalisation</label>
-                    <div><input value="${this.POI.latitude}" type="text" name="latitude" required="" id="latitude"></div>
-                    <div><input value="${this.POI.longitude}" type="text" name="longitude" required="" id="longitude"></div>
+                    <div><input value="${this.POI.latitude}" type="text" name="latitude" id="latitude"></div>
+                    <div><input value="${this.POI.longitude}" type="text" name="longitude" id="longitude"></div>
                 </div>
                 <div class="col s12 m12 l12">
                     <label>Images</label>
@@ -47,7 +47,7 @@
                         <input id="fileupload" type="file" name="fileupload">
                       </div>
                       <div class="file-path-wrapper">
-                        <input   class="file-path validate" type="text" >
+                        <input class="file-path validate" type="text" >
                       </div>
                     </div>
                 </div>
@@ -58,6 +58,15 @@
                             <li>${custcust.name}</li>
                         </ul>
                     </g:each>
+                    <label>Associer le point d'intêret à d'autres groupes :</label>
+                        <select multiple>
+                            <option value="" disabled selected>Choose your option</option>
+                            <g:each in="${groups}" var="custcust">
+                                ${custcust.name}
+                                    <option value="${custcust.name}">${custcust.name}</option>
+                            </g:each>
+                        </select>
+                    </div>
                 </div>
                 <a class="waves-effect waves-light btn right">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
