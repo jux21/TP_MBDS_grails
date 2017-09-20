@@ -103,7 +103,9 @@ class POIController {
         def deletedPOIName = POI.getName()
         for (POIsGroup group : groups) {
             def deletedPOI = group.pois.find { it.name == deletedPOIName }
-            group.removeFromPois(deletedPOI)
+            if (deletedPOI != null) {
+                group.removeFromPois(deletedPOI)
+            }
         }
 
         POI.delete flush:true

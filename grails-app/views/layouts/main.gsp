@@ -41,11 +41,17 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groupe de points d'intêret<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/POIsGroup/list">Afficher la liste des groupes</a></li>
-                </ul>
-            </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groupes de points d'intêret<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/POIsGroup/list">Afficher la liste des groupes</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/POI/list">Afficher la liste des utilisateurs</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -73,8 +79,27 @@
     <li><a href="#!"><i class="material-icons">person</i>Modifier mon profil</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">TP Grails</a></li>
-    <li><a class="waves-effect" href="#!">Objectifs réalisés</a></li>
+    <li>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Objectifs réalisés</a>
+    </li>
+
+
+
 </ul>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Objectifs réalisés</h4>
+        <ul>
+            <li>Création d'un POI</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
+    </div>
+</div>
 
     <asset:javascript src="application.js"/>
     <!--Import jQuery before materialize.js-->
