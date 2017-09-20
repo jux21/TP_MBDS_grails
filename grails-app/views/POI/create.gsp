@@ -50,6 +50,7 @@
                 </div>
                 <a class="waves-effect waves-light btn right"><input type="submit" name="create" class="save" value="Create" id="create"></a>
             </g:form>
+
         </div>
     </body>
 </html>
