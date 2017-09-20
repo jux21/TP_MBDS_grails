@@ -1,6 +1,7 @@
 package tp_mbds_grails
 
 import grails.plugin.springsecurity.annotation.Secured
+import javafx.scene.Group
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -98,12 +99,19 @@ class POIController {
             return
         }
 
+        def groups = POIsGroup.list()
+        def deletedPOIName = POI.getName()
+        for (POIsGroup group : groups) {
+            def deletedPOI = group.pois.find { it.name == deletedPOIName }
+            group.removeFromPois(deletedPOI)
+        }
+
         POI.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'POI.label', default: 'POI'), POI.id])
-                redirect action:"index", method:"GET"
+                redirect action:"list", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }

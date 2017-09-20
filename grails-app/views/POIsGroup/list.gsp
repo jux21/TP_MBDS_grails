@@ -16,10 +16,10 @@
 <body>
 
 <table>
-    <tr><th>Nom</th><th>Points d'intêret associés</th><th>Images</th></tr>
+    <tr><th>Nom</th><th>Points d'intêret associés</th><th>Images</th><th>Actions</th></tr>
     <g:each in="${poisgroups}" var="cust">
         <tr>
-            <td>${cust.name}</td>
+            <td><g:link class="show" action="show" resource="${cust}">${cust.name}</g:link></td>
             <td>
                 <g:each in="${cust.pois}" var="custcust">
                     ${custcust.name}
@@ -28,6 +28,15 @@
                 <g:each in="${cust.images}" var="custcust">
                     <g:img dir="images" file="${custcust.path}" width="40" height="40"/>
                 </g:each>
+            </td>
+            <td>
+                <f:display bean="POI" />
+                <g:form resource="${cust}" method="DELETE">
+                    <fieldset class="buttons">
+                        <g:link class="edit" action="edit" resource="${cust}">modifier</g:link>
+                        <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                    </fieldset>
+                </g:form>
             </td>
         </tr>
     </g:each>
