@@ -20,12 +20,12 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar">Hellow</span>
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
-            <a class="navbar-brand" href="/#">
+            <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only user_menu right"><i class="material-icons">person</i></a>
+            <a class="navbar-brand" href="/#" >
                 <i class="fa grails-icon">
                     <asset:image src="grails-cupsonly-logo-white.svg"/>
                 </i> Grails
@@ -104,15 +104,17 @@
             </span>
         </a>
     </div></li>
-    <li><a href="/secUser/edit/ ${sec.loggedInUserInfo(field: 'id')}"><i class="material-icons">person</i>Modifier mon profil</a></li>
-   <li><a >Déconnexion</a></li>
-    <li><div class="divider"></div></li>
     <li><a class="subheader">TP Grails</a></li>
     <li>
         <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Objectifs réalisés</a>
 
     </li>
+    <li><a class="subheader">Gérer son profil</a></li>
+    <li><a href="/secUser/edit/ ${sec.loggedInUserInfo(field: 'id')}"><i class="material-icons">person</i>Modifier mon profil</a></li>
+   <li><a href="#" >Déconnexion</a></li>
+    <li><div class="divider"></div></li>
+
 
 
 

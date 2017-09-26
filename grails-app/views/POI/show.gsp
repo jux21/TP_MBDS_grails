@@ -7,8 +7,57 @@
     </head>
     <body>
         <div id="show-POI" class="content scaffold-show" role="main">
+
+
+            <div id="map"></div>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSZ9W5AfxbUyLI1XDC1cWFvVdFD4ytMI&signed_in=true&callback=initMap"></script>
+
+
+            <script type="text/javascript">
+                function initMap() {
+
+                    var broadway = {
+                        info: '<strong>${this.POI.name}</strong><br>\
+					<g:each in="${this.POI.images}" var="custcust">\n' +
+                        '                    <g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>\n' +
+                        '                </g:each>',
+                        lat: ${this.POI.latitude},
+                        long: ${this.POI.longitude}
+                    };
+
+                    var locations = [
+                        [broadway.info, broadway.lat, broadway.long, 0],
+                    ];
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 13,
+                        center: new google.maps.LatLng(${this.POI.latitude}, ${this.POI.longitude}),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var infowindow = new google.maps.InfoWindow({});
+
+                    var marker, i;
+
+                    for (i = 0; i < locations.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map
+                        });
+
+                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                            return function () {
+                                infowindow.setContent(locations[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                    }
+                }
+            </script>
+
             <div class="row">
-            <h4><g:message code="default.show.label" args="[entityName]" /></h4>
+            <h4>Point d'intêret ${this.POI.name}</h4>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>

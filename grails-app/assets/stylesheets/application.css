@@ -24,6 +24,17 @@
     src: url(https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
 
+.user_menu {
+    margin-top: 15px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+#map {
+    height: 300px;
+    width:100%;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
