@@ -40,31 +40,32 @@
                         <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
                     </g:each>
 
-                <g:each in="${cust.images}" var="custcust">
-                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/>
-                </g:each>
+    <%--<g:each in="${cust.images}" var="custcust">
+        <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/>
+    </g:each>--%>
 
-                </ul>
 
-            </td>
-            <td>
-                <f:display bean="POI" />
-                <g:form resource="${cust}" method="DELETE">
-                    <fieldset class="buttons">
-                        <g:link class="edit" action="edit" resource="${cust}">modifier</g:link>
-                        <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                    </fieldset>
-                </g:form>
-            </td>
-        </tr>
-    </g:each>
-    </tbody>
+    </ul>
+
+</td>
+<td>
+    <f:display bean="POI" />
+    <g:form resource="${cust}" method="DELETE">
+        <fieldset class="buttons">
+            <g:link class="edit" action="edit" resource="${cust}">modifier</g:link>
+            <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+        </fieldset>
+    </g:form>
+</td>
+</tr>
+</g:each>
+</tbody>
 </table>
 
 <div class="nav" role="navigation">
-    <ul>
-        <li><g:link class="create" action="create">Créer un point d'intêret</g:link></li>
-    </ul>
+<ul>
+<li><g:link class="create" action="create">Créer un point d'intêret</g:link></li>
+</ul>
 </div>
 
 </body>

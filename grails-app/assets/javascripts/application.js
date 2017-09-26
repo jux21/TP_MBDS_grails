@@ -26,6 +26,14 @@ $(".button-collapse").sideNav();
 // Initialize collapsible (uncomment the line below if you use the dropdown variation)
 //$('.collapsible').collapsible();
 
-$('.modal').modal();
+$('.modal').modal({
+    dismissible: false
+});
 
 $('select').material_select();
+
+$('#modal2').modal('open');
+
+function closeLoginPopUp() {
+    $('#modal2').modal('close');
+}

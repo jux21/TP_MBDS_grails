@@ -46,6 +46,10 @@ class POIsGroupController {
             return
         }
 
+        for (POIGroupImage image : POIsGroup.images) {
+            POIsGroup.removeFromImages(image)
+        }
+
         POIsGroup.save flush:true
 
         request.withFormat {
@@ -59,7 +63,7 @@ class POIsGroupController {
 
     @Secured(['ROLE_ADMIN'])
     def edit(POIsGroup POIsGroup) {
-        respond POIsGroup
+        respond POIsGroup, model:[pois:POI.list()]
     }
 
     @Secured(['ROLE_ADMIN'])

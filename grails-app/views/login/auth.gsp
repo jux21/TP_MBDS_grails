@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta name="layout" content="${gspLayout ?: 'main'}"/>
-    <title><g:message code='springSecurity.login.title'/></title>
+    <title>Grails Login</title>
     <style type="text/css" media="screen">
     #login {
         margin: 15px 0px;
@@ -73,16 +73,20 @@
     </style>
 </head>
 
-<body>
-<div id="login">
-    <div class="inner">
-        <div class="fheader"><g:message code='springSecurity.login.header'/><p>TP GRAILS MBDS <p>Cécile Melay - Julien Hubert</div>
+<form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" class="cssform" autocomplete="off">
+  <!-- Modal Structure -->
+<div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+
+
+        <h4><div class="fheader"><g:message code='springSecurity.login.header'/><p>TP GRAILS MBDS <p>
+        </div></h4>
 
         <g:if test='${flash.message}'>
             <div class="login_message">${flash.message}</div>
         </g:if>
 
-        <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" class="cssform" autocomplete="off">
+
             <p>
                 <label for="username"><g:message code='springSecurity.login.username.label'/>:</label>
                 <input type="text" class="text_" name="${usernameParameter ?: 'username'}" id="username"/>
@@ -98,13 +102,15 @@
                 <label for="remember_me"><g:message code='springSecurity.login.remember.me.label'/></label>
             </p>
 
-            <p>
-                <input type="submit" id="submit" value="${message(code: 'springSecurity.login.button')}"/></p>
-            </p>
 
-        </form>
+    </div>
+    <div class="modal-footer">
+            <a class="waves-effect waves-light btn"><input type="submit" onclick="closeLoginPopUp()" id="submit" value="${message(code: 'springSecurity.login.button')}"/></a>
+        </p>
     </div>
 </div>
+</form>
+
 <script>
     (function() {
         document.forms['loginForm'].elements['${usernameParameter ?: 'username'}'].focus();

@@ -44,10 +44,10 @@
                      <div class="file-field input-field">
                       <div class="btn">
                         <span>Ajouter une image</span>
-                        <input id="fileupload" type="file" name="fileupload">
+                        <input id="fileupload" type="file" name="fileupload" value="">
                       </div>
                       <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" >
+                        <input class="file-path validate" type="text" value="">
                       </div>
                     </div>
                 </div>
@@ -59,14 +59,17 @@
                         </ul>
                     </g:each>
                     <label>Associer le point d'intêret à d'autres groupes :</label>
-                        <select multiple>
-                            <option value="" disabled selected>Choose your option</option>
-                            <g:each in="${groups}" var="custcust">
-                                ${custcust.name}
-                                    <option value="${custcust.name}">${custcust.name}</option>
+                       <%-- <select name="groups" id="groups" multiple="">
+                            <g:each in="${groups}" var="custcust" status="i">
+                                    <option value="${i}">${custcust}</option>
                             </g:each>
-                        </select>
-                    </div>
+                        </select> --%>
+
+                    <g:select name="groups"
+                              from="${groups}"
+                              value="${this.POI.groups*.id}"
+                              optionKey="id"
+                              multiple="true" />
                 </div>
                 <a class="waves-effect waves-light btn right">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />

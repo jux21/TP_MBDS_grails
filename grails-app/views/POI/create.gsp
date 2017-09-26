@@ -47,10 +47,14 @@
                 </div>
                 <div class="col s12 m12 l12">
                     <label>Groupes associés</label>
+                        <g:select name="groups"
+                          from="${tp_mbds_grails.POIsGroup.all}"
+                          value="${tp_mbds_grails.POIsGroup.all.getIndices()}"
+                          optionKey="id"
+                          multiple="true" />
                 </div>
                 <a class="waves-effect waves-light btn right"><input type="submit" name="create" class="save" value="Create" id="create"></a>
             </g:form>
-
         </div>
     </body>
 </html>

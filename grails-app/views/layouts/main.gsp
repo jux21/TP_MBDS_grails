@@ -49,11 +49,14 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/POI/list">Afficher la liste des utilisateurs</a></li>
+                        <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
                     </ul>
                 </li>
+
             </ul>
+
         </div>
+
     </div>
 
 <main>
@@ -61,28 +64,27 @@
 </main>
 
 <footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-            </div>
+    <div class="row">
+        <div class="col l6 s12">
+            <h5 class="white-text">TP : Création d’une plateforme de gestion de points d’intérêts</h5>
+            <p class="grey-text text-lighten-4">M2 MBDS 2017-2018</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Liens</h5>
+            <ul>
+                <li><a class="grey-text text-lighten-3" href="http://www.mbds-fr.org/">Site MBDS</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://grails.org/">Site Grails</a></li>
+                <li><a href= "http://materializecss.com/" class="grey-text text-lighten-3">Site Materialazecss</a></li>
+                <li><a class="grey-text text-lighten-3" href="http://getbootstrap.com/">Site Bootstarp</a></li>
+            </ul>
         </div>
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
+</div>
+<div class="footer-copyright">
+    <div class="container">
+        M2 MBDS 2017-2018
+        <a class="grey-text text-lighten-4 right" href="#!">Cécile Melay</a>
+        <a class="grey-text text-lighten-4 right" href="#!">Julien Hubert</a>
     </div>
 </footer>
 
@@ -92,15 +94,24 @@
             <g:img dir="images" file="office.jpg"/>
         </div>
         <a href="#!user"><g:img class="circle" dir="images" file="yuna.jpg"/></a>
-        <a href="#!name"><span class="white-text name">John Doe</span></a>
-        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        <a href="/secUser/show/ ${sec.loggedInUserInfo(field: 'id')}"><span class="white-text name">${sec.loggedInUserInfo(field: 'username')} </span></a>
+        <a href="#!email">
+            <span class="white-text email">
+                Role(s) :
+                <sec:ifAnyGranted roles="ROLE_ADMIN"> Administrateur</sec:ifAnyGranted>
+                <sec:ifAnyGranted roles="ROLE_MODER"> Modérateur</sec:ifAnyGranted>
+                <sec:ifAnyGranted roles="ROLE_USER"> Utilisateur</sec:ifAnyGranted>
+            </span>
+        </a>
     </div></li>
-    <li><a href="#!"><i class="material-icons">person</i>Modifier mon profil</a></li>
+    <li><a href="/secUser/edit/ ${sec.loggedInUserInfo(field: 'id')}"><i class="material-icons">person</i>Modifier mon profil</a></li>
+   <li><a >Déconnexion</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">TP Grails</a></li>
     <li>
         <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Objectifs réalisés</a>
+
     </li>
 
 
@@ -135,16 +146,18 @@
                 <div class="divider"></div>
                 <h6>Create</h6>
                 <div class="divider"></div>
-                <h6>POI Create</h6>
-                <p>Création d'un POI avec Nom, Description OK.</p>
-                <p>Association avec 1 groupe OK.</p>
+                <h6>POI Create / Read / Update / Delete </h6>
+                <p>Read OK</p>
+                <p>Creation, Update Nom, Description, Association avec 1 ou plusieurs groupe(s) OK</p>
+                <p>Suppression d'un POI et de ses références vers les groupes OK</p>
                 <div class="divider"></div>
                 <h6>POIsGroup Create</h6>
-                <p>Création d'un POIsGroup avec Nom OK.</p>
-                <p>Association avec 1 ou plusieurs POI OK.</p>
+                <p>Création d'un POIsGroup avec Nom OK</p>
+                <p>Association avec 1 ou plusieurs POI OK</p>
                 <div class="divider"></div>
-                <h6>SecUser Create</h6>
-                <p>...</p>
+                <h6>SecUser Create / Read / Update</h6>
+                <p>Affichage de la liste des utilisateurs de leurs rôles OK</p>
+                <p>Create / Update UserName et Password OK</p>
                 <h6>Ajout d'image</h6>
                 <p>Téléchargement d'image sur Apache OK</p>
                 <div class="divider"></div>

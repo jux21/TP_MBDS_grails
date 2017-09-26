@@ -1,7 +1,7 @@
 ---
 grails:
     project:
-        groupId:
+        groupId: com.monprojet
     profile: web
     codegen:
         defaultPackage: tp_mbds_grails

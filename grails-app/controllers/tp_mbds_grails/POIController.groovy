@@ -49,9 +49,17 @@ class POIController {
             return
         }
 
+        for (POIsGroup groupe : POI.groups) {
+            //POIsGroup groupe = POIsGroup.getId(groups[i])
+            println "hi2"
+            POI.addToGroups(groupe)
+        }
+
+        //POI.addToGroups(POIsGroup.getId(5))
+
         saveImage()
-        POIGroupImage yolo = new POIGroupImage(path:"narcos.jpg")
-        POI.addToImages(yolo)
+       // POIGroupImage yolo = new POIGroupImage(path:"narcos.jpg")
+       // POI.addToImages(yolo)
 
         POI.save flush:true
 
@@ -76,7 +84,7 @@ class POIController {
 
     @Secured(['ROLE_ADMIN'])
     @Transactional
-    def update(POI POI) {
+    def update(POI POI, def groups) {
         if (POI == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -88,6 +96,10 @@ class POIController {
             respond POI.errors, view:'edit'
             return
         }
+
+        println "hi1"
+
+
 
         POI.save flush:true
 
@@ -111,12 +123,19 @@ class POIController {
         }
 
         def groups = POIsGroup.list()
+
         def deletedPOIName = POI.getName()
         for (POIsGroup group : groups) {
-            def deletedPOI = group.pois.find { it.name == deletedPOIName }
-            if (deletedPOI != null) {
-                group.removeFromPois(deletedPOI)
+            for (POI poiD : group.pois.find()) {
+                def deletedPOI = group.pois.find { it.name == deletedPOIName }
+                if (deletedPOI != null) {
+                    group.removeFromPois(deletedPOI)
+                }
             }
+        }
+
+        for (POIGroupImage image : POI.images) {
+            POI.removeFromImages(image)
         }
 
         POI.delete flush:true
