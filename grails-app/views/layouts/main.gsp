@@ -125,55 +125,63 @@
     <div class="modal-content">
         <h4>Objectifs réalisés</h4>
         <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="section">
+            <ul class="achievements">
+                <div class="col s12 m12 l12">
                     <h5>Init</h5>
                     <div class="divider"></div>
-                    <div class="section">
-                        <h6>POI et POIsGroup</h6>
-                        <li>Création de 10 POI et 10 POIsGroup dans une boucle for</li>
-                    </div>
-
-                    <div class="divider"></div>
-                    <h6>Utilisation de Spring Security</h6>
-                    <h5>Session</h5>
-                    <div class="divider"></div>
-                    <h6>Utilisation de Spring Security</h6>
-                    <li>Page d'authentification </li>
+                    <h6>POI et POIsGroup</h6>
+                    <li>Création de 10 POI et 10 POIsGroup dans une boucle for</li>
+                    <h6>SecUser</h6>
+                    <li>Création de 3 SecUser : 1 administrateur, 1 modérateur, 1 utilisateur</li>
                 </div>
-                <div class="divider"></div>
-            </div>
-            <div class="col s12 m12 l12">
-                <h5>CRUD</h5>
-                <div class="divider"></div>
-                <h6>Create</h6>
-                <div class="divider"></div>
-                <ul class="achievements">
-                <h6>POI Create / Read / Update / Delete </h6>
-                <li>Lecture avec une google map et 1 marker qui ouvre une pop-up au clic avec Nom et Image 
-                <li>Lecture Nom, Description, Latitude, Longitude, Association avec 1 ou plusieurs groupe(s)</li>
-                <li>Creation, Update Nom, Description, Latitude, Longitude, Association avec 1 ou plusieurs groupe(s) </li>
-                <li>Suppression d'un POI, de ses références vers ses groupes et des ses images </li>
-                <div class="divider"></div>
-                <h6>POIsGroup Create</h6>
-                <li>Création d'un POIsGroup avec Nom </li>
-                <li>Creation, Update Nom, Association avec 1 ou plusieurs POI </li>
-                <li>Suppression d'un POIsGroup, de ses références vers ses POIs et des ses images </li>
-                <div class="divider"></div>
-                <h6>SecUser Create / Read / Update</h6>
-                <li>Affichage de la liste des utilisateurs de leurs rôles </li>
-                <li>Create / Update UserName et Password </li>
-                <h6>Ajout d'image</h6>
-                <li>Téléchargement d'image sur Apache </li>
-                <div class="divider"></div>
-                <h5>Bonus</h5>
-                <div class="divider">...</div>
-                <h6>...</h6>
-                <li>...</li>
-                </ul>
-            </div>
-
-            <div class="divider"></div>
+                <div class="col s12 m12 l12">
+                    <h5>Sessions</h5>
+                    <div class="divider"></div>
+                    <h6>Utilisation de Spring Security</h6>
+                    <li>Page d'authentification personnilisée</li>
+                    <h6>Gestion des rôles</h6>
+                    <li>Tout les SecUser de l'app peuvent modifier leur profil</li>
+                    <li>Les administrateurs accèdent à toute les fonctionnalités de l'app</li>
+                    <li>//TODO Les modérateurs ne peuvent pas voir les autres utilisateurs</li>
+                    <li>//TODO Les utilisateurs ne peuvent que consulter la liste des POIs et des POIsGroups</li>
+                </div>
+                <div class="col s12 m12 l12">
+                    <h5>CRUD</h5>
+                    <div class="divider"></div>
+                    <h6>POI Create / Read / Update / Delete </h6>
+                    <li>Lecture avec une google map et 1 marker qui ouvre une pop-up au clic avec Nom et Image
+                    <li>Lecture Nom, Description, Latitude, Longitude, Association avec 1 ou plusieurs groupe(s)</li>
+                    <li>Creation, Update Nom, Description, Latitude, Longitude, Association avec 1 ou plusieurs groupe(s) </li>
+                    <li>Suppression d'un POI, de ses références vers ses groupes et des ses images </li>
+                    <h6>POIsGroup Create / Read / Update / Delete </h6>
+                    <li>Création d'un POIsGroup avec Nom </li>
+                    <li>Creation, Update Nom, Association avec 1 ou plusieurs POI </li>
+                    <li>Suppression d'un POIsGroup, de ses références vers ses POIs et des ses images </li>
+                    <h6>SecUser Create / Read / Update</h6>
+                    <li>Affichage de la liste des utilisateurs de leurs rôles </li>
+                    <li>Create / Update UserName et Password </li>
+                    <li>//TODO Delete secUser</li>
+                    <li>//TODO Update and Create SecUser with SecRole</li>
+                    <h6>Ajout d'image</h6>
+                    <li>Téléchargement d'image sur Apache </li>
+                    <li>//TODO finir l'ajout d'image</li>
+                </div>
+                <div class="col s12 m12 l12">
+                    <h5>UrlMapping</h5>
+                    <div class="divider"></div>
+                    <h6>Clean URL</h6>
+                    <li>//TODO Redirections et clean URLs (à spécifier)</li>
+                </div>
+                <div class="col s12 m12 l12">
+                    <h5>Bonus</h5>
+                    <div class="divider"></div>
+                    <h6>Google Map</h6>
+                    <li>Visualisation du POI sur une Google Map</li>
+                    <li>Mise à jour du POI en déplaçant le marker de la Google Map</li>
+                    <h6>Ajax</h6>
+                    <li>//TODO ajouter Ajax sur l'app + drag'n'drop</li>
+                </div>
+            </ul>
         </div>
     </div>
     <div class="modal-footer">
