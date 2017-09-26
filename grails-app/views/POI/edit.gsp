@@ -31,8 +31,65 @@
                 </div>
                 <div class="col s12 m12 l12">
                     <label>Géolocalisation</label>
-                    <div><input value="${this.POI.latitude}" type="text" name="latitude" id="latitude"></div>
-                    <div><input value="${this.POI.longitude}" type="text" name="longitude" id="longitude"></div>
+                    <div id="map"></div>
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSZ9W5AfxbUyLI1XDC1cWFvVdFD4ytMI&signed_in=true&callback=initMap"></script>
+
+
+                    <script type="text/javascript">
+                        function initMap() {
+
+                            var broadway = {
+                                info: '<strong>${this.POI.name}</strong><br>\
+					<g:each in="${this.POI.images}" var="custcust">\n' +
+                                '                    <g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>\n' +
+                                '                </g:each>',
+                                lat: ${this.POI.latitude},
+                                long: ${this.POI.longitude}
+                            };
+
+                            var locations = [
+                                [broadway.info, broadway.lat, broadway.long, 0],
+                            ];
+
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 13,
+                                center: new google.maps.LatLng(${this.POI.latitude}, ${this.POI.longitude}),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            });
+
+                            var infowindow = new google.maps.InfoWindow({});
+
+                            var marker, i;
+
+                            for (i = 0; i < locations.length; i++) {
+                                marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                    map: map,
+                                    draggable:true
+                                });
+
+                                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                    return function () {
+                                        infowindow.setContent(locations[i][0]);
+                                        infowindow.open(map, marker);
+                                    }
+                                })(marker, i));
+                            }
+                            google.maps.event.addListener(marker, 'dragend', function (event) {
+                                document.getElementById("lat").value = event.latLng.lat();
+                                document.getElementById("long").value = event.latLng.lng();
+                            });
+                        }
+                        google.maps.event.addDomListener(window, "load", initialize());
+
+                        function bugfix() {
+                            document.getElementById("lat").value = document.getElementById("lat").value.replace(".", ",");
+                            document.getElementById("long").value = document.getElementById("lat").value.replace(".", ",");
+                        }
+                    </script>
+                    <div><input id="lat" value="${this.POI.latitude}" type="text" name="latitude"></div>
+                    <div><input id="long" value="${this.POI.longitude}" type="text" name="longitude"></div>
                 </div>
                 <div class="col s12 m12 l12">
                     <label>Images</label>
@@ -72,7 +129,7 @@
                               multiple="true" />
                 </div>
                 <a class="waves-effect waves-light btn right">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                    <input onClick="bugfix()" class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </a>
             </g:form>
         </div>
