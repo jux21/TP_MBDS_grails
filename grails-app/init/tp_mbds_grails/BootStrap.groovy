@@ -21,16 +21,18 @@ class BootStrap {
         println(SecUserSecRole.count())
 
         POI myfirstpoi
-        POIGroupImage myfirstimage
+        POIImage myfirstimage
         POIsGroup group
+        GroupImage mysecondimage
 
         for (def i = 0; i <10; i++) {
 
-            myfirstimage = new POIGroupImage(path:'apple-touch-icon-retina.png')
+            myfirstimage = new POIImage(path:'apple-touch-icon-retina.png')
+            mysecondimage = new GroupImage(path:'apple-touch-icon-retina.png')
             myfirstpoi = new POI(name:'my poi'+i, latitude:0, longitude:0, description: 'my poi description'+i)
             myfirstpoi.addToImages(myfirstimage)
             group = new POIsGroup(name :'my group'+i).addToPois(myfirstpoi).save()
-            group.addToImages(myfirstimage).save()
+            group.addToImages(mysecondimage).save()
 
             myfirstimage = null
             myfirstpoi = null

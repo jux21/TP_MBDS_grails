@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'POIGroupImage.label', default: 'POIGroupImage')}" />
+        <g:set var="entityName" value="${message(code: 'POIImage.label', default: 'POIImage')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>

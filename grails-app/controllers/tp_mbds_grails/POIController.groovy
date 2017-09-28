@@ -1,9 +1,6 @@
 package tp_mbds_grails
 
 import grails.plugin.springsecurity.annotation.Secured
-import javafx.scene.Group
-import org.springframework.web.multipart.MultipartFile
-import sun.misc.IOUtils
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -37,6 +34,7 @@ class POIController {
     @Secured(['ROLE_ADMIN'])
     @Transactional
     def save(POI POI) {
+
         if (POI == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -53,12 +51,14 @@ class POIController {
             //POIsGroup groupe = POIsGroup.getId(groups[i])
             println "hi2"
             POI.addToGroups(groupe)
+
         }
 
-        //POI.addToGroups(POIsGroup.getId(5))
-
-        saveImage()
-       // POIGroupImage yolo = new POIGroupImage(path:"narcos.jpg")
+        def image = new POIImage(path: params.image)
+        POI.addToImages(image)
+        
+        //saveImage()
+       // POIImage yolo = new POIImage(path:"narcos.jpg")
        // POI.addToImages(yolo)
 
         POI.save flush:true
@@ -134,7 +134,7 @@ class POIController {
             }
         }
 
-        for (POIGroupImage image : POI.images) {
+        for (POIImage image : POI.images) {
             POI.removeFromImages(image)
         }
 

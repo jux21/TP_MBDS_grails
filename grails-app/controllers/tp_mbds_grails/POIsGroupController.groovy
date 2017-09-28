@@ -46,7 +46,7 @@ class POIsGroupController {
             return
         }
 
-        for (POIGroupImage image : POIsGroup.images) {
+        for (POIImage image : POIsGroup.images) {
             POIsGroup.removeFromImages(image)
         }
 

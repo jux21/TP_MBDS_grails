@@ -17,7 +17,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.POI}" method="POST">
+            <g:form resource="${this.POI}" method="POST" enctype="multipart/form-data">
                 <div class="row">
                 <h4>Créer un point d'intêret</h4>
                 <div class="col s12 m12 l12">
@@ -41,7 +41,7 @@
                         <input id="fileupload" type="file" name="fileupload">
                       </div>
                       <div class="file-path-wrapper">
-                        <input   class="file-path validate" type="text" name = "images">
+                        <input class="file-path validate" type="text" name="image">
                       </div>
                     </div>
                 </div>

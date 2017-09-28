@@ -24,3 +24,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
+grails.controllers.upload.maxFileSize=10000000000000
+grails.controllers.upload.maxRequestSize=10000000000000

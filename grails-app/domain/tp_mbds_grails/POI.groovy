@@ -3,7 +3,7 @@ package tp_mbds_grails
 class POI {
 
     static belongsTo = POIsGroup
-    static hasMany = [groups: POIsGroup, images:POIGroupImage]
+    static hasMany = [groups: POIsGroup, images:POIImage]
     String name;
     Double latitude;
     Double longitude;

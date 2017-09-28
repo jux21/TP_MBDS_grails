@@ -13,22 +13,22 @@ class POIGroupImageController {
     @Secured(['IS_AUTHENTICATED_FULLY'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond POIGroupImage.list(params), model:[POIGroupImageCount: POIGroupImage.count()]
+        respond POIImage.list(params), model:[POIGroupImageCount: POIImage.count()]
     }
 
     @Secured(['IS_AUTHENTICATED_FULLY'])
-    def show(POIGroupImage POIGroupImage) {
+    def show(POIImage POIGroupImage) {
         respond POIGroupImage
     }
 
     @Secured(['ROLE_ADMIN'])
     def create() {
-        respond new POIGroupImage(params)
+        respond new POIImage(params)
     }
 
     @Secured(['ROLE_ADMIN'])
     @Transactional
-    def save(POIGroupImage POIGroupImage) {
+    def save(POIImage POIGroupImage) {
         if (POIGroupImage == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -45,7 +45,7 @@ class POIGroupImageController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'POIGroupImage.label', default: 'POIGroupImage'), POIGroupImage.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'POIImage.label', default: 'POIImage'), POIGroupImage.id])
                 redirect POIGroupImage
             }
             '*' { respond POIGroupImage, [status: CREATED] }
@@ -53,13 +53,13 @@ class POIGroupImageController {
     }
 
     @Secured(['ROLE_ADMIN'])
-    def edit(POIGroupImage POIGroupImage) {
+    def edit(POIImage POIGroupImage) {
         respond POIGroupImage
     }
 
     @Secured(['ROLE_ADMIN'])
     @Transactional
-    def update(POIGroupImage POIGroupImage) {
+    def update(POIImage POIGroupImage) {
         if (POIGroupImage == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -76,7 +76,7 @@ class POIGroupImageController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'POIGroupImage.label', default: 'POIGroupImage'), POIGroupImage.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'POIImage.label', default: 'POIImage'), POIGroupImage.id])
                 redirect POIGroupImage
             }
             '*'{ respond POIGroupImage, [status: OK] }
@@ -85,7 +85,7 @@ class POIGroupImageController {
 
     @Secured(['ROLE_ADMIN'])
     @Transactional
-    def delete(POIGroupImage POIGroupImage) {
+    def delete(POIImage POIGroupImage) {
 
         if (POIGroupImage == null) {
             transactionStatus.setRollbackOnly()
@@ -97,7 +97,7 @@ class POIGroupImageController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'POIGroupImage.label', default: 'POIGroupImage'), POIGroupImage.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'POIImage.label', default: 'POIImage'), POIGroupImage.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -108,7 +108,7 @@ class POIGroupImageController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'POIGroupImage.label', default: 'POIGroupImage'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'POIImage.label', default: 'POIImage'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

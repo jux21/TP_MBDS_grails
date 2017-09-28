@@ -1,11 +1,10 @@
 package tp_mbds_grails
 
-import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(POIGroupImageController)
-@Mock(POIGroupImage)
-class POIGroupImageControllerSpec extends Specification {
+@Mock(POIImage)
+class POIImageControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -38,7 +37,7 @@ class POIGroupImageControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def POIGroupImage = new POIGroupImage()
+            def POIGroupImage = new POIImage()
             POIGroupImage.validate()
             controller.save(POIGroupImage)
 
@@ -49,12 +48,12 @@ class POIGroupImageControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            POIGroupImage = new POIGroupImage(params)
+            POIGroupImage = new POIImage(params)
 
             controller.save(POIGroupImage)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/POIGroupImage/show/1'
+            response.redirectedUrl == '/POIImage/show/1'
             controller.flash.message != null
             POIGroupImage.count() == 1
     }
@@ -68,7 +67,7 @@ class POIGroupImageControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def POIGroupImage = new POIGroupImage(params)
+            def POIGroupImage = new POIImage(params)
             controller.show(POIGroupImage)
 
         then:"A model is populated containing the domain instance"
@@ -84,7 +83,7 @@ class POIGroupImageControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def POIGroupImage = new POIGroupImage(params)
+            def POIGroupImage = new POIImage(params)
             controller.edit(POIGroupImage)
 
         then:"A model is populated containing the domain instance"
@@ -98,12 +97,12 @@ class POIGroupImageControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/POIGroupImage/index'
+            response.redirectedUrl == '/POIImage/index'
             flash.message != null
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def POIGroupImage = new POIGroupImage()
+            def POIGroupImage = new POIImage()
             POIGroupImage.validate()
             controller.update(POIGroupImage)
 
@@ -114,12 +113,12 @@ class POIGroupImageControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            POIGroupImage = new POIGroupImage(params).save(flush: true)
+            POIGroupImage = new POIImage(params).save(flush: true)
             controller.update(POIGroupImage)
 
         then:"A redirect is issued to the show action"
             POIGroupImage != null
-            response.redirectedUrl == "/POIGroupImage/show/$POIGroupImage.id"
+            response.redirectedUrl == "/POIImage/show/$POIGroupImage.id"
             flash.message != null
     }
 
@@ -130,13 +129,13 @@ class POIGroupImageControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/POIGroupImage/index'
+            response.redirectedUrl == '/POIImage/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def POIGroupImage = new POIGroupImage(params).save(flush: true)
+            def POIGroupImage = new POIImage(params).save(flush: true)
 
         then:"It exists"
             POIGroupImage.count() == 1
@@ -146,7 +145,7 @@ class POIGroupImageControllerSpec extends Specification {
 
         then:"The instance is deleted"
             POIGroupImage.count() == 0
-            response.redirectedUrl == '/POIGroupImage/index'
+            response.redirectedUrl == '/POIImage/index'
             flash.message != null
     }
 }

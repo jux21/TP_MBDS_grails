@@ -1,8 +1,8 @@
 package tp_mbds_grails
 
-class POIGroupImage {
+class POIImage {
 
-    static belongsTo = [POI, POIsGroup]
+    static belongsTo = [POI]
     String path
 
     static constraints = {

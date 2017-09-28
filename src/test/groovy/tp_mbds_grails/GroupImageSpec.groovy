@@ -3,7 +3,7 @@ package tp_mbds_grails
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class POIGroupImageSpec extends Specification implements DomainUnitTest<POIGroupImage> {
+class GroupImageSpec extends Specification implements DomainUnitTest<GroupImage> {
 
     def setup() {
     }

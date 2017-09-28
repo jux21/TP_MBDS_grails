@@ -104,7 +104,7 @@
                         <input id="fileupload" type="file" name="fileupload" value="">
                       </div>
                       <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" value="">
+                        <input class="file-path validate" type="text" name="image" value="">
                       </div>
                     </div>
                 </div>
