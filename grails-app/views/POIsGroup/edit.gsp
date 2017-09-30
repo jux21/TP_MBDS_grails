@@ -26,7 +26,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.POIsGroup}" method="PUT">
+            <g:uploadForm resource="${this.POIsGroup}" method="PUT">
              <div class="row">
                 <h4>Modifier le POIsGroup ${this.POIsGroup.name}</h4>
                 <div class="col s12 m12 l12">
@@ -37,7 +37,7 @@
                     <label>Images</label>
                     <g:each in="${this.POIsGroup.images}" var="custcust">
                         <ul>
-                            <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
+                            <li><li><img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/></li>
                         </ul>
                     </g:each>
                     <div class="file-field input-field">
@@ -46,7 +46,7 @@
                             <input id="fileupload" type="file" name="fileupload" value="">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" value="">
+                            <input class="file-path validate" type="text" name="image" value="">
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </fieldset>--%>
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>

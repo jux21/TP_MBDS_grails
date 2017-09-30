@@ -17,7 +17,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.POI}" method="POST" enctype="multipart/form-data">
+            <g:uploadForm resource="${this.POI}" method="POST" enctype="multipart/form-data">
                 <div class="row">
                 <h4>Créer un point d'intêret</h4>
                 <div class="col s12 m12 l12">
@@ -54,7 +54,7 @@
                           multiple="true" />
                 </div>
                 <a class="waves-effect waves-light btn right"><input type="submit" name="create" class="save" value="Create" id="create"></a>
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>

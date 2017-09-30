@@ -5,3 +5,5 @@ import tp_mbds_grails.SecUserPasswordEncoderListener
 beans = {
     secUserPasswordEncoderListener(SecUserPasswordEncoderListener, ref('hibernateDatastore'))
 }
+
+

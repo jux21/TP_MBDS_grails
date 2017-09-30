@@ -18,7 +18,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.POI}" method="POST">
+            <g:uploadForm resource="${this.POI}" method="POST">
                 <div class="row">
                 <h4>Modifier le POI ${this.POI.name}</h4>
                 <div class="col s12 m12 l12">
@@ -42,7 +42,7 @@
                             var broadway = {
                                 info: '<strong>${this.POI.name}</strong><br>\
 					<g:each in="${this.POI.images}" var="custcust">\n' +
-                                '                    <g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>\n' +
+                                '                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/></li>\n' +
                                 '                </g:each>',
                                 lat: ${this.POI.latitude},
                                 long: ${this.POI.longitude}
@@ -95,7 +95,7 @@
                     <label>Images</label>
                     <g:each in="${this.POI.images}" var="custcust">
                         <ul>
-                            <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
+                            <li><img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/></li>
                         </ul>
                     </g:each>
                      <div class="file-field input-field">
@@ -131,7 +131,7 @@
                 <a class="waves-effect waves-light btn right">
                     <input onClick="bugfix()" class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </a>
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>

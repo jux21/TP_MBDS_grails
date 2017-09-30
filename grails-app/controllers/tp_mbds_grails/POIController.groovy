@@ -1,6 +1,9 @@
 package tp_mbds_grails
 
 import grails.plugin.springsecurity.annotation.Secured
+import org.springframework.web.multipart.MultipartHttpServletRequest
+import org.springframework.web.multipart.commons.CommonsMultipartFile
+import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -49,17 +52,14 @@ class POIController {
 
         for (POIsGroup groupe : POI.groups) {
             //POIsGroup groupe = POIsGroup.getId(groups[i])
-            println "hi2"
             POI.addToGroups(groupe)
 
         }
 
         def image = new POIImage(path: params.image)
         POI.addToImages(image)
-        
-        //saveImage()
-       // POIImage yolo = new POIImage(path:"narcos.jpg")
-       // POI.addToImages(yolo)
+
+        params.fileupload.transferTo(new java.io.File("/Applications/MAMP/htdocs/images/"+params.image))
 
         POI.save flush:true
 
@@ -72,10 +72,6 @@ class POIController {
         }
     }
 
-    def saveImage()
-    {
-        //new File("/Applications/MAMP/htdocs/images/narcos.jpg").bytes = new java.net.URL("http://www.tvqc.com/wp-content/uploads/2016/07/narcos-season-2.jpg").bytes
-    }
 
     @Secured(['ROLE_ADMIN'])
     def edit(POI POI) {

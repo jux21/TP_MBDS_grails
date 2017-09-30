@@ -26,7 +26,7 @@
                 </g:each></td>
             <td>
                 <g:each in="${cust.images}" var="custcust">
-                    <g:img dir="images" file="${custcust.path}" width="40" height="40"/>
+                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/>
                 </g:each>
             </td>
             <td>

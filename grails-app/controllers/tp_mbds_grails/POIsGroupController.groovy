@@ -50,6 +50,16 @@ class POIsGroupController {
             POIsGroup.removeFromImages(image)
         }
 
+        println("CACA")
+        println(params.name)
+        println(params.image)
+        println(params.fileupload)
+
+        def image = new GroupImage(path: params.image)
+        POIsGroup.addToImages(image)
+
+        params.fileupload.transferTo(new java.io.File("/Applications/MAMP/htdocs/images/"+params.image))
+
         POIsGroup.save flush:true
 
         request.withFormat {
@@ -80,6 +90,11 @@ class POIsGroupController {
             respond POIsGroup.errors, view:'edit'
             return
         }
+
+        def image = new GroupImage(path: params.image)
+        POIsGroup.addToImages(image)
+
+        params.fileupload.transferTo(new java.io.File("/Applications/MAMP/htdocs/images/"+params.image))
 
         POIsGroup.save flush:true
 

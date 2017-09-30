@@ -36,12 +36,7 @@
             <td>
                 <ul>
 
-                    <%--<g:each in="${cust.images}" var="custcust">
-                        <li><g:img dir="images" file="${custcust.path}" width="40" height="40"/></li>
-                    </g:each>--%>
-
     <g:each in="${cust.images}" var="custcust">
-        ${custcust.path}
         <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/>
     </g:each>
 

@@ -25,14 +25,14 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.POIGroupImage}" method="POST">
+            <g:uploadForm resource="${this.POIGroupImage}" method="POST">
                 <fieldset class="form">
                     <f:all bean="POIGroupImage"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>
