@@ -129,20 +129,6 @@ class POIController {
             }
         }
 
-        /*def images = POIImage.list()
-
-        for (POIImage image : images) {
-            for (POI poiD : image.pois.find()) {
-                def deletedPOI = image.pois.find { it.name == deletedPOIName }
-                if (deletedPOI != null) {
-                    image.removeFromPois(deletedPOI)
-                }
-            }
-        }*/
-
-        //for (POIImage image : POI.images) {
-            //POI.removeFromImages(image)
-        //}
 
         POI.delete flush:true
 
