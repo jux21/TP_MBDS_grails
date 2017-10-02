@@ -7,20 +7,6 @@ import org.springframework.security.core.context.SecurityContextHolder
 
 class LoginController extends grails.plugin.springsecurity.LoginController implements GrailsConfigurationAware {
 
-    /*@Secured(['ROLE_ADMIN','ROLE_MODER'])
-    def index() {
-        def roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities()
-
-        for(def role in roles)
-        {
-            if(role.getAuthority()=="ROLE_ADMIN")
-                render(view: "indexAdmin")
-            else
-                render(view: "indexModerator")
-        }
-
-
-    }*/
 
     def auth() {
         def conf = getConf()
@@ -40,21 +26,6 @@ class LoginController extends grails.plugin.springsecurity.LoginController imple
 
     }
 
-    /*def index() {
-        render view: "/index"
-        /*if (springSecurityService.isLoggedIn()) {
-            redirect uri: conf.successHandler.defaultTargetUrl
-        }
-        else {
-            redirect action: 'auth', params: params
-        }
-    }*/
-
-
-
-    /*def login() {
-        render(view: "indexAdmin")
-    }*/
 
     @Override
     void setConfiguration(Config co) {

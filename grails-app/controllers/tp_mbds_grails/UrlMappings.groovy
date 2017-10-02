@@ -13,6 +13,7 @@ class UrlMappings {
         "/index"(view:"/index")
         "/POI/index" (controller:"POI", action:"list" )
         "/POIsGroup/index" (controller:"POIsGroup", action:"list" )
+        "/secUser/index" (controller:"secUser", action:"list" )
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

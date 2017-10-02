@@ -26,12 +26,12 @@ class POIsGroupController {
         respond POIsGroup
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def create() {
         respond new POIsGroup(params)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def save(POIsGroup POIsGroup) {
         if (POIsGroup == null) {
@@ -64,12 +64,12 @@ class POIsGroupController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def edit(POIsGroup POIsGroup) {
         respond POIsGroup, model:[pois:POI.list()]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def update(POIsGroup POIsGroup) {
         if (POIsGroup == null) {
@@ -102,7 +102,7 @@ class POIsGroupController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def delete(POIsGroup POIsGroup) {
 

@@ -26,12 +26,12 @@ class POIController {
         respond POI
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN', 'ROLE_MODER'])
     def create() {
         respond new POI(params)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def save(POI POI) {
 
@@ -72,12 +72,12 @@ class POIController {
     }
 
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def edit(POI POI) {
         respond POI, model:[groups:POIsGroup.list()]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def update(POI POI, def groups) {
         if (POI == null) {
@@ -92,10 +92,6 @@ class POIController {
             return
         }
 
-        println "hi1"
-
-
-
         POI.save flush:true
 
         request.withFormat {
@@ -107,7 +103,7 @@ class POIController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def delete(POI POI) {
 

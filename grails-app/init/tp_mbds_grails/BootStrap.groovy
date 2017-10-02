@@ -6,9 +6,9 @@ class BootStrap {
     def init = { servletContext ->
 
 
-        SecUser adminUser = new SecUser(username: "adminUser", password: "adminUser", enabled: true).save(flush:true)
-        SecUser moderatorUser = new SecUser(username: "moderatorUser", password: "moderatorUser", enabled: true).save(flush:true)
-        SecUser utilUser = new SecUser(username: "utilUser", password: "utilUser", enabled: true).save(flush:true)
+        SecUser adminUser = new SecUser(username: "IamRoot", password: "root", enabled: true).save(flush:true)
+        SecUser moderatorUser = new SecUser(username: "IamModerator", password: "moderator", enabled: true).save(flush:true)
+        SecUser utilUser = new SecUser(username: "IamUser", password: "user", enabled: true).save(flush:true)
         SecRole roleAdmin = new SecRole(authority: 'ROLE_ADMIN').save(flush:true)
         SecRole roleModer = new SecRole(authority: 'ROLE_MODER').save(flush:true)
         SecRole roleUser = new SecRole(authority: 'ROLE_USER').save(flush:true)

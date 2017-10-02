@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title>TP Grails MBDS</title>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 </head>
@@ -49,23 +49,16 @@
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+            <g:img class="grails-logo-container" dir="images" file="valrose.jpeg"/>
         </div>
     </div>
 
-    <p>Bienvenu ${sec.username()} </p>
     <div id="content" role="main">
         <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
-            <a href="/POI/list">Liste des points d'intérêt</a>
-
-
-
+            <h1>Hello ${sec.username()}</h1>
             <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
+                <a href="/POI/list">Liste des points d'intérêt</a><br>
+                <a href="/POIsGroup/list">Liste des groupes d'intérêt</a>
             </p>
 
             <div id="controllers" role="navigation">
