@@ -1,9 +1,6 @@
 package tp_mbds_grails
 
 import grails.plugin.springsecurity.annotation.Secured
-import org.springframework.web.multipart.MultipartHttpServletRequest
-import org.springframework.web.multipart.commons.CommonsMultipartFile
-import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -59,7 +56,8 @@ class POIController {
         def image = new POIImage(path: params.image)
         POI.addToImages(image)
 
-        params.fileupload.transferTo(new java.io.File("/Applications/MAMP/htdocs/images/"+params.image))
+        params.fileupload.transferTo(new java.io.File(grailsApplication.config.updateFolder+params.image))
+
 
         POI.save flush:true
 

@@ -163,8 +163,8 @@
                     <li>//TODO Delete secUser</li>
                     <li>//TODO Update and Create SecUser with SecRole</li>
                     <h6>Ajout d'image</h6>
-                    <li>Téléchargement d'image sur Apache </li>
-                    <li>//TODO finir l'ajout d'image</li>
+                    <li>Upload d'images sur Apache </li>
+                    <li>Download d'images sur Apache </li>
                 </div>
                 <div class="col s12 m12 l12">
                     <h5>UrlMapping</h5>
