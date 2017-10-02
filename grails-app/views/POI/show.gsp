@@ -6,6 +6,12 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
+    <div class="nav" role="navigation">
+        <ul>
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+            <li><a href="${createLink(uri: '/POI/list')}"><g:message code="Liste des POI"/></a></li>
+        </ul>
+    </div>
         <div id="show-POI" class="content scaffold-show" role="main">
 
 
@@ -86,7 +92,7 @@
                 <h6>Groupes associés</h6>
                 <g:each in="${this.POI.groups}" var="custcust">
                     <ul>
-                        <li>${custcust.name}</li>
+                        <li><g:link class="show" action="show" resource="${custcust}">${custcust.name}</g:link></li>
                     </ul>
                 </g:each>
             </div>

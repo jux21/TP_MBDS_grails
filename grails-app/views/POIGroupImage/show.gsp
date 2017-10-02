@@ -20,6 +20,7 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="POIGroupImage" />
+
             <g:form resource="${this.POIGroupImage}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.POIGroupImage}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

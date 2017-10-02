@@ -15,6 +15,13 @@
 
 <body>
 
+<div class="nav" role="navigation">
+    <ul>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <li><a href="${createLink(uri: '/POI/list')}"><g:message code="Liste des POI"/></a></li>
+    </ul>
+</div>
+
 <table class="highlight bordered">
     <thead>
     <tr><th>Nom</th><th>Lat.</th><th>Long.</th><th>Groupes associés</th><th>Description</th><th>Images</th><th>Actions</th></tr>
