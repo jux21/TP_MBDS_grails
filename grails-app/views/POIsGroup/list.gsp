@@ -44,6 +44,7 @@
                     <fieldset class="buttons">
                         <g:link class="edit" action="edit" resource="${cust}">modifier</g:link>
                         <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+
                     </fieldset>
                 </g:form>
             </td>

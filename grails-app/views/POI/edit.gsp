@@ -6,6 +6,12 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
+    <div class="nav" role="navigation">
+        <ul>
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+            <li><a href="${createLink(uri: '/POI/list')}"><g:message code="Liste des POI"/></a></li>
+        </ul>
+    </div>
         <a href="#edit-POI" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div id="edit-POI" class="content scaffold-edit" role="main">
             <g:if test="${flash.message}">
