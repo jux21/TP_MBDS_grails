@@ -24,14 +24,27 @@ class BootStrap {
         POIImage myfirstimage
         POIsGroup group
         GroupImage mysecondimage
+        def lat
+        def lng
 
         for (def i = 0; i <10; i++) {
 
-            myfirstimage = new POIImage(path:'apple-touch-icon-retina.png')
-            mysecondimage = new GroupImage(path:'apple-touch-icon-retina.png')
-            myfirstpoi = new POI(name:'my poi'+i, latitude:0, longitude:0, description: 'my poi description'+i)
-            myfirstpoi.addToImages(myfirstimage)
-            group = new POIsGroup(name :'my group'+i).addToPois(myfirstpoi).save()
+            //10 groups are created
+            group = new POIsGroup(name :'my group'+i)
+
+            for (def j = 0; j <10; j++) {
+
+                lat =  43.62+(i/1000)
+                lng = 7.06+(j/1000)
+
+                //10 POI are created per groups
+                myfirstimage = new POIImage(path: 'apple-touch-icon-retina.png')
+                myfirstpoi = new POI(name: 'my poi'+i+'-' + j, latitude: lat, longitude: lng, description: 'my poi description' + j)
+                myfirstpoi.addToImages(myfirstimage)
+                group.addToPois(myfirstpoi).save()
+            }
+
+            mysecondimage = new GroupImage(path: 'apple-touch-icon-retina.png')
             group.addToImages(mysecondimage).save()
 
             myfirstimage = null
