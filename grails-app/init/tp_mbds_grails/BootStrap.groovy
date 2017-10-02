@@ -34,8 +34,8 @@ class BootStrap {
 
             for (def j = 0; j <10; j++) {
 
-                lat =  43.62+(i/1000)
-                lng = 7.06+(j/1000)
+                lat =  43.62+(i+j/1000)
+                lng = 7.06+(j+i/1000)
 
                 //10 POI are created per groups
                 myfirstimage = new POIImage(path: 'apple-touch-icon-retina.png')
