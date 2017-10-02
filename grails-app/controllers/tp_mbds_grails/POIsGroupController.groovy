@@ -46,19 +46,12 @@ class POIsGroupController {
             return
         }
 
-        for (POIImage image : POIsGroup.images) {
-            POIsGroup.removeFromImages(image)
+
+        if(params.image != "") {
+            def image = new GroupImage(path: params.image)
+            POIsGroup.addToImages(image)
+            params.fileupload.transferTo(new java.io.File(grailsApplication.config.updateFolder + params.image))
         }
-
-        println("CACA")
-        println(params.name)
-        println(params.image)
-        println(params.fileupload)
-
-        def image = new GroupImage(path: params.image)
-        POIsGroup.addToImages(image)
-
-        params.fileupload.transferTo(new java.io.File("/Applications/MAMP/htdocs/images/"+params.image))
 
         POIsGroup.save flush:true
 
@@ -91,10 +84,12 @@ class POIsGroupController {
             return
         }
 
-        def image = new GroupImage(path: params.image)
-        POIsGroup.addToImages(image)
 
-        params.fileupload.transferTo(new java.io.File(grailsApplication.config.updateFolder+params.image))
+        if(params.image != "") {
+            def image = new GroupImage(path: params.image)
+            POIsGroup.addToImages(image)
+            params.fileupload.transferTo(new java.io.File(grailsApplication.config.updateFolder + params.image))
+        }
 
         POIsGroup.save flush:true
 
@@ -116,6 +111,7 @@ class POIsGroupController {
             notFound()
             return
         }
+
 
         POIsGroup.delete flush:true
 

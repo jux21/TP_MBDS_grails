@@ -37,7 +37,7 @@
                 <ul>
 
     <g:each in="${cust.images}" var="custcust">
-        <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/>
+        <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="50" height="50"/>
     </g:each>
 
 

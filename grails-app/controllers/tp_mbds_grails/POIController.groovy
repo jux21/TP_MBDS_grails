@@ -53,10 +53,11 @@ class POIController {
 
         }
 
-        def image = new POIImage(path: params.image)
-        POI.addToImages(image)
-
-        params.fileupload.transferTo(new java.io.File(grailsApplication.config.updateFolder+params.image))
+        if(params.image != "") {
+            def image = new POIImage(path: params.image)
+            POI.addToImages(image)
+            params.fileupload.transferTo(new java.io.File(grailsApplication.config.updateFolder + params.image))
+        }
 
 
         POI.save flush:true
@@ -128,9 +129,20 @@ class POIController {
             }
         }
 
-        for (POIImage image : POI.images) {
-            POI.removeFromImages(image)
-        }
+        /*def images = POIImage.list()
+
+        for (POIImage image : images) {
+            for (POI poiD : image.pois.find()) {
+                def deletedPOI = image.pois.find { it.name == deletedPOIName }
+                if (deletedPOI != null) {
+                    image.removeFromPois(deletedPOI)
+                }
+            }
+        }*/
+
+        //for (POIImage image : POI.images) {
+            //POI.removeFromImages(image)
+        //}
 
         POI.delete flush:true
 

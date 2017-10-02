@@ -26,7 +26,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:uploadForm resource="${this.POIsGroup}" method="PUT">
+            <g:uploadForm resource="${this.POIsGroup}" method="POST">
              <div class="row">
                 <h4>Modifier le POIsGroup ${this.POIsGroup.name}</h4>
                 <div class="col s12 m12 l12">
