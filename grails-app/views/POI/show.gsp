@@ -92,7 +92,7 @@
                 <h6>Groupes associés</h6>
                 <g:each in="${this.POI.groups}" var="custcust">
                     <ul>
-                        <li>${custcust.name}</li>
+                        <li><g:link class="show" action="show" resource="${custcust}">${custcust.name}</g:link></li>
                     </ul>
                 </g:each>
             </div>
