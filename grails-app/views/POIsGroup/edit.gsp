@@ -51,6 +51,63 @@
                 </div>
                 <div class="col s12 m12 l12">
                     <label>POIs associés</label>
+                    <div id="map"></div>
+
+
+                        <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSZ9W5AfxbUyLI1XDC1cWFvVdFD4ytMI&signed_in=true&callback=initMap"></script>
+
+                    <script>
+                        var locations = [
+
+                        ];
+                    </script>
+                    <g:each in="${this.POIsGroup.pois}" var="custcust">
+                        <script type="text/javascript">
+
+                            var broadway = {
+                                info: '<strong>${custcust.name}</strong><br>\
+					<g:each in="${custcust.images}" var="custcustcust">\n' +
+                                '                    <img src="${grailsApplication.config.urlImage}/${custcustcust.path}" width="250" height="200"/></li>\n' +
+                                '                </g:each>',
+                                lat: ${custcust.latitude},
+                                long: ${custcust.longitude}
+                            };
+
+                            locations.push(broadway);
+
+                        </script>
+                    </g:each>
+                        <script type="text/javascript">
+
+                            function initMap() {
+
+
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 13,
+                                    center: new google.maps.LatLng(43.6, 7),
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                });
+
+                                var infowindow = new google.maps.InfoWindow({});
+
+                                var marker, i;
+
+                                for (i = 0; i < locations.length; i++) {
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                        return function () {
+                                            infowindow.setContent(locations[i][0]);
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+                                }
+                            }
+                            google.maps.event.addDomListener(window, "load", initialize());
+                        </script>
                     <g:each in="${this.POIsGroup.pois}" var="custcust">
                         <ul>
                             <li>${custcust.name}</li>

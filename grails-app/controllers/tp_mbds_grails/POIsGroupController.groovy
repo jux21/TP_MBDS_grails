@@ -66,7 +66,7 @@ class POIsGroupController {
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def edit(POIsGroup POIsGroup) {
-        respond POIsGroup, model:[pois:POI.list()]
+        respond POIsGroup, model:[pois:POI.list(), nbPois: POIsGroup.count()]
     }
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
