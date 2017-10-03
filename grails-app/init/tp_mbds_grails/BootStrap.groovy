@@ -10,13 +10,23 @@ class BootStrap {
 
         SecUser adminUser = new SecUser(username: "IamRoot", password: "root", enabled: true).save(flush:true)
         SecUser moderatorUser = new SecUser(username: "IamModerator", password: "moderator", enabled: true).save(flush:true)
-        SecUser utilUser = new SecUser(username: "IamUser", password: "user", enabled: true).save(flush:true)
+
         SecRole roleAdmin = new SecRole(authority: 'ROLE_ADMIN').save(flush:true)
         SecRole roleModer = new SecRole(authority: 'ROLE_MODER').save(flush:true)
-        SecRole roleUser = new SecRole(authority: 'ROLE_USER').save(flush:true)
+
         SecUserSecRole.create(adminUser,roleAdmin,true)
         SecUserSecRole.create(moderatorUser,roleModer,true)
-        SecUserSecRole.create(utilUser,roleUser,true)
+
+
+        SecUser utilUser
+        SecRole roleUser = new SecRole(authority: 'ROLE_USER').save(flush:true)
+        for (def i = 0; i < 5; i++) {
+            utilUser = new SecUser(username: "IamUser"+i, password: "user", enabled: true).save(flush:true)
+            SecUserSecRole.create(utilUser,roleUser,true)
+            utilUser = null
+        }
+
+
 
         println(SecUser.count())
         println(SecRole.count())

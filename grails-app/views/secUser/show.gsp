@@ -20,6 +20,9 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="secUser" />
+            <g:each in="${this.secUser.authorities}" var="custcust">
+                ${custcust.authority}
+            </g:each>
             <g:form resource="${this.secUser}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.secUser}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

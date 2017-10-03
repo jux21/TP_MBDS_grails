@@ -48,6 +48,8 @@ class SecUserController {
             return
         }
 
+
+
         secUser.save flush:true
 
         request.withFormat {
@@ -61,7 +63,7 @@ class SecUserController {
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def edit(SecUser secUser) {
-        respond secUser
+        respond secUser, model:[secroles:SecRole.list()]
     }
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
@@ -77,6 +79,10 @@ class SecUserController {
             transactionStatus.setRollbackOnly()
             respond secUser.errors, view:'edit'
             return
+        }
+
+        for (SecRole role : secUser.getAuthorities()) {
+            SecUserSecRole.add(secUser, role)
         }
 
         secUser.save flush:true
@@ -99,6 +105,13 @@ class SecUserController {
             notFound()
             return
         }
+
+        // Suppression role(s)
+        for (SecRole role : secUser.getAuthorities()) {
+            SecUserSecRole.remove(secUser, role)
+        }
+
+
 
         secUser.delete flush:true
 
