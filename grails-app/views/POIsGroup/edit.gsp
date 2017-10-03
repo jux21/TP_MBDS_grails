@@ -71,7 +71,9 @@
                             locations.push( {
                                 'lat':${custcust.latitude},
                                 'long':${custcust.longitude} ,
-                                'info': '<strong>${custcust.name}</strong>'
+                                'info': '<g:link class="show" action="show" resource="${custcust}"><strong>${custcust.name}</strong></g:link><g:each in="${custcust.images}" var="custcustcust">'+
+                                '<img src="${grailsApplication.config.urlImage}/${custcustcust.path}" width="50" height="50"/>'+
+                                '</g:each>'
                             } )
                         </script>
                     </g:each>

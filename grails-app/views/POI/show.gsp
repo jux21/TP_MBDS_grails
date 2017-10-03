@@ -26,7 +26,7 @@
                     var broadway = {
                         info: '<strong>${this.POI.name}</strong><br>\
 					<g:each in="${this.POI.images}" var="custcust">\n' +
-                        '                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/></li>\n' +
+                        '                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="50" height="50"/></li>\n' +
                         '                </g:each>',
                         lat: ${this.POI.latitude},
                         long: ${this.POI.longitude}
@@ -92,6 +92,7 @@
                 <h6>Groupes associés</h6>
                 <g:each in="${this.POI.groups}" var="custcust">
                     <ul>
+
                         <li><g:link class="show" action="show" resource="${custcust}">${custcust.name}</g:link></li>
                     </ul>
                 </g:each>

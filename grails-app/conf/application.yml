@@ -102,7 +102,9 @@ dataSource:
 
 environments:
     development:
-        updateFolder: "C:/wamp64/www/imagesmbds"
+
+        updateFolderCecile: "C:/wamp64/www/imagesmbds"
+        updateFolder : "/Applications/MAMP/htdocs/images"
         urlImage: "http://localhost:8081/images"
         dataSource:
             dbCreate: update
