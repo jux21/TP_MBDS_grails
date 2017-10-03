@@ -25,6 +25,8 @@
                     ${this.POIsGroup.name}
                 </div>
 
+                
+
                 <div class="col s12 m12 l12">
                     <h6>Images</h6>
                     <g:each in="${this.POIsGroup.images}" var="custcust">

@@ -22,6 +22,7 @@
     <table>
         <tr><th>Nom</th><th>Mot de passe</th><th>Roles</th><th>Actions</th></tr>
     <g:each in="${secUsers}" var="cust">
+
         <tr>
             <td><g:link class="show" action="show" resource="${cust}">${cust.username}</g:link></td>
             <td>${cust.password}</td>

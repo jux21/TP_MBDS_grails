@@ -39,6 +39,11 @@
                         <label>Mot de pase</label>
                         <input value="${this.secUser.password}" type="text" name="password" value="" required="" id="password" >
                     </div>
+                    <label>Rôle :</label>
+                    <g:select name="secroles"
+                              from="${secroles}"
+                              value="${this.secUser.authorities*.id}"
+                              optionKey="id" />
                 </div>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
