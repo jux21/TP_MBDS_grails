@@ -14,7 +14,6 @@
             </ul>
         </div>
         <div id="create-POIsGroup" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -25,13 +24,46 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
+
+
             <g:uploadForm resource="${this.POIsGroup}" method="POST">
-                <fieldset class="form">
-                    <f:all bean="POIsGroup"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
+
+                <div class="row">
+                    <h4>Créer un groupe de points d'intêrets</h4>
+                    <div class="col s12 m12 l12">
+                        <label>Nom</label>
+                        <input value="${this.POIsGroup.name}" type="text" name="name" value="" required="" id="name" >
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <label>Ajouter des points d'intêret dans le groupe :</label>
+                        <g:select name="pois"
+                                  from="${tp_mbds_grails.POI.all}"
+                                  value="${tp_mbds_grails.POI.all.getIndices()}"
+                                  optionKey="id"
+                                  multiple="true" />
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <label>Images</label>
+                        <g:each in="${this.POIsGroup.images}" var="custcust">
+                            <ul>
+                                <li><li><img src="${grailsApplication.config.urlImage}/${custcust.path}" width="250" height="200"/></li>
+                            </ul>
+                        </g:each>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Ajouter une image</span>
+                                <input id="fileupload" type="file" name="fileupload" value="">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="image" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="waves-effect waves-light btn right">
+                        <input class="save" type="submit" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    </a>
+
+
             </g:uploadForm>
         </div>
     </body>

@@ -104,7 +104,7 @@ environments:
     development:
 
         updateFolderCecile: "C:/wamp64/www/imagesmbds"
-        updateFolder : "/Applications/MAMP/htdocs/images"
+        updateFolder : "/Applications/MAMP/htdocs/images/"
         urlImage: "http://localhost:8081/images"
         dataSource:
             dbCreate: update
