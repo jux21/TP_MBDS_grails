@@ -21,6 +21,7 @@ if (typeof jQuery !== 'undefined') {
 }
 
 
+    $('.parallax').parallax();
 
 
 // Initialize collapse button

@@ -49,7 +49,6 @@
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <g:img class="grails-logo-container" dir="images" file="valrose.jpeg"/>
         </div>
     </div>
 

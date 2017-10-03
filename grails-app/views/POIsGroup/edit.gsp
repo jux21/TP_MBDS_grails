@@ -80,7 +80,7 @@
                             function initMap() {
 
                                 var map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 13,
+                                    zoom: 14,
                                     center: new google.maps.LatLng(locations[0]['lat'], locations[0]['long']),
                                     mapTypeId: google.maps.MapTypeId.ROADMAP
                                 });

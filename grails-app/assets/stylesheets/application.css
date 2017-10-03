@@ -77,9 +77,19 @@ body {
     flex-direction: column;
 }
 
+#slide-out.side-nav.fixed {
+    position:absolute;
+    height:100%;
+}
+
+.page-footer {
+    z-index: 1000;
+}
+
 main {
     margin-top: 70px;
     flex: 1 0 auto;
+    background: #efefef;
 }
 
 main h1 {

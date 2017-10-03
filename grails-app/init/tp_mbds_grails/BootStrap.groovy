@@ -1,6 +1,8 @@
 package tp_mbds_grails
 //Debug apache tomcat : netstat -aon | find ":80" | find "LISTENING"
 
+import java.util.Random
+
 class BootStrap {
 
     def init = { servletContext ->
@@ -26,6 +28,7 @@ class BootStrap {
         GroupImage mysecondimage
         def lat
         def lng
+        def rand
 
         for (def i = 0; i <10; i++) {
 
@@ -34,8 +37,11 @@ class BootStrap {
 
             for (def j = 0; j <10; j++) {
 
-                lat =  43.62+(i+j/1000)
-                lng = 7.06+(j+i/1000)
+                rand = new Random()
+                int max = 9
+
+                lat =  43.62+(rand.nextInt(max+1)/1000)
+                lng = 7.06+(rand.nextInt(max+1)/1000)
 
                 //10 POI are created per groups
                 myfirstimage = new POIImage(path: 'apple-touch-icon-retina.png')

@@ -30,11 +30,11 @@
             <td><g:link class="show" action="show" resource="${cust}">${cust.name}</g:link></td>
             <td>
                 <g:each in="${cust.pois}" var="custcust">
-                    ${custcust.name}
+                    <p>${custcust.name}</p>
                 </g:each></td>
             <td>
                 <g:each in="${cust.images}" var="custcust">
-                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="50" height="50"/>
+                    <img src="${grailsApplication.config.urlImage}/${custcust.path}" width="40" height="50"/>
                 </g:each>
             </td>
             <td>

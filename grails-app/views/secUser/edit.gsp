@@ -16,6 +16,7 @@
         </div>
         <div id="edit-secUser" class="content scaffold-edit" role="main">
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <p>Pour changer de mot de passe, supprimez le contenu crypté de l'ancien mot de passe ci-dessous puis écrivez le nouveau.</p>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
