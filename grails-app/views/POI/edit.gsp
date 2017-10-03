@@ -91,7 +91,7 @@
 
                         function bugfix() {
                             document.getElementById("lat").value = document.getElementById("lat").value.replace(".", ",");
-                            document.getElementById("long").value = document.getElementById("lat").value.replace(".", ",");
+                            document.getElementById("long").value = document.getElementById("long").value.replace(".", ",");
                         }
                     </script>
                     <div><input id="lat" value="${this.POI.latitude}" type="text" name="latitude"></div>
