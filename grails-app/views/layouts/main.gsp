@@ -46,12 +46,27 @@
                         <li><a href="/POIsGroup/list">Afficher la liste des groupes</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
-                    </ul>
-                </li>
+
+
+                <sec:ifLoggedIn>
+                    <sec:ifAllGranted roles="ROLE_ADMIN">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
+                        </ul>
+                    </li>
+                    </sec:ifAllGranted>
+                    <sec:ifAllGranted roles="ROLE_MODER">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
+                            </ul>
+                        </li>
+                    </sec:ifAllGranted>
+                </sec:ifLoggedIn>
+
 
             </ul>
 
@@ -97,7 +112,7 @@
         <a href="/secUser/show/ ${sec.loggedInUserInfo(field: 'id')}"><span class="white-text name">${sec.loggedInUserInfo(field: 'username')} </span></a>
         <a href="#!email">
             <span class="white-text email">
-                Role(s) :
+                Role :
                 <sec:ifAnyGranted roles="ROLE_ADMIN"> Administrateur</sec:ifAnyGranted>
                 <sec:ifAnyGranted roles="ROLE_MODER"> Modérateur</sec:ifAnyGranted>
                 <sec:ifAnyGranted roles="ROLE_USER"> Utilisateur</sec:ifAnyGranted>
