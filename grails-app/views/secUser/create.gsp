@@ -26,9 +26,23 @@
             </ul>
             </g:hasErrors>
             <g:form resource="${this.secUser}" method="POST">
-                <fieldset class="form">
-                    <f:all bean="secUser"/>
-                </fieldset>
+                <div class="row">
+                    <h4>Créer un utilisateur</h4>
+                    <p>Pour changer de mot de passe, supprimez le contenu crypté de l'ancien mot de passe ci-dessous puis écrivez le nouveau.</p>
+                    <div class="col s12 m12 l12">
+                        <label>Nom d'utilisateur</label>
+                        <input value="" type="text" name="username" value="" required="" id="username" >
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <label>Mot de pase</label>
+                        <input value="" type="text" name="password" value="" required="" id="password" >
+                    </div>
+                    <label>Rôle :</label>
+                    <g:select name="secroles"
+                              from="${secroles}"
+                              value=""
+                              optionKey="id" />
+                </div>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>

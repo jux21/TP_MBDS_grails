@@ -30,7 +30,7 @@ class SecUserController {
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def create() {
-        respond new SecUser(params)
+        respond new SecUser(params), model:[secroles:SecRole.list()]
     }
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
@@ -82,7 +82,7 @@ class SecUserController {
         }
 
         for (SecRole role : secUser.getAuthorities()) {
-            SecUserSecRole.add(secUser, role)
+            SecUserSecRole.create(secUser,role, flush:true)
         }
 
         secUser.save flush:true
