@@ -20,6 +20,7 @@ class BootStrap {
 
         SecUser utilUser
         SecRole roleUser = new SecRole(authority: 'ROLE_USER').save(flush:true)
+
         for (def i = 0; i < 5; i++) {
             utilUser = new SecUser(username: "IamUser"+i, password: "user", enabled: true).save(flush:true)
             SecUserSecRole.create(utilUser,roleUser,true)

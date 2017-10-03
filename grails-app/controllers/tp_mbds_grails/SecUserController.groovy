@@ -48,9 +48,14 @@ class SecUserController {
             return
         }
 
-
-
         secUser.save flush:true
+
+        SecRole secRole
+
+        for (def idRole : params.secroles) {
+            SecRole role = SecRole.findById(idRole)
+            SecUserSecRole.create(secUser,role,true)
+        }
 
         request.withFormat {
             form multipartForm {
@@ -81,11 +86,16 @@ class SecUserController {
             return
         }
 
-        for (SecRole role : secUser.getAuthorities()) {
-            SecUserSecRole.create(secUser,role, flush:true)
-        }
+
 
         secUser.save flush:true
+
+        SecRole secRole
+
+        for (def idRole : params.secroles) {
+            SecRole role = SecRole.findById(idRole)
+            SecUserSecRole.create(secUser,role,true)
+        }
 
         request.withFormat {
             form multipartForm {
