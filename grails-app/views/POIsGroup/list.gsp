@@ -19,7 +19,8 @@
 <div class="nav" role="navigation">
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+        <li><g:link class="create" action="create">Créer un groupe de POI</g:link></li>
+        <li><a href="${createLink(uri: '/POIsGroup/list')}"><g:message code="Liste des groupes"/></a></li>
     </ul>
 </div>
 
@@ -30,7 +31,7 @@
             <td><g:link class="show" action="show" resource="${cust}">${cust.name}</g:link></td>
             <td>
                 <g:each in="${cust.pois}" var="custcust">
-                    <p>${custcust.name}</p>
+                    <p><g:link class="show" action="show" resource="${custcust}">${custcust.name}</g:link></p>
                 </g:each></td>
             <td>
                 <g:each in="${cust.images}" var="custcust">

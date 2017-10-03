@@ -12,28 +12,28 @@ class SecUserController {
 
     def securityService
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def list() {
         render view:"/secUser/list",model:[secUsers:SecUser.list()]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond SecUser.list(params), model:[secUserCount: SecUser.count()]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def show(SecUser secUser) {
         respond secUser
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def create() {
         respond new SecUser(params)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def save(SecUser secUser) {
         if (secUser == null) {
@@ -61,12 +61,12 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     def edit(SecUser secUser) {
         respond secUser, model:[secroles:SecRole.list()]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def update(SecUser secUser) {
         if (secUser == null) {
@@ -96,7 +96,7 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     @Transactional
     def delete(SecUser secUser) {
 
@@ -124,7 +124,7 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_MODER'])
     protected void notFound() {
         request.withFormat {
             form multipartForm {

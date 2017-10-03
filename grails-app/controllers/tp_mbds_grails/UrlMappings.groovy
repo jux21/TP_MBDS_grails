@@ -11,9 +11,17 @@ class UrlMappings {
 
         "/"(view:"/index")
         "/index"(view:"/index")
-        "/POI/index" (controller:"POI", action:"list" )
-        "/POIsGroup/index" (controller:"POIsGroup", action:"list" )
-        "/secUser/index" (controller:"secUser", action:"list" )
+        "/login"(view:"/index")
+
+        "/POI" (controller:"POI", action:"list" )
+        "/POI/*" (controller:"POI", action:"list" )
+
+        "/POIsGroup" (controller:"POIsGroup", action:"list" )
+        "/POIsGroup/*" (controller:"POIsGroup", action:"list" )
+
+        "/secUser" (controller:"secUser", action:"list" )
+        "/secUser/*" (controller:"secUser", action:"list" )
+
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
