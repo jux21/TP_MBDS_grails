@@ -98,8 +98,8 @@
 <div class="footer-copyright">
     <div class="container">
         M2 MBDS 2017-2018
-        <a class="grey-text text-lighten-4 right" href="#!">Cécile Melay</a>
-        <a class="grey-text text-lighten-4 right" href="#!">Julien Hubert</a>
+        <a class="grey-text text-lighten-4 right" href="#!">- Cécile Melay</a>
+        <a class="grey-text text-lighten-4 right" href="#!">Julien Hubert -</a>
     </div>
 </footer>
 
