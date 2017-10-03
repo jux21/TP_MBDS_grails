@@ -36,7 +36,7 @@
             <td>
                 <ul>
                     <g:each in="${cust.groups}" var="custcust">
-                            <li>${custcust.name}</li>
+                        <li><g:link class="show" action="show" resource="${custcust}">${custcust.name}</g:link></li>
                     </g:each>
                 </ul>
             </td>

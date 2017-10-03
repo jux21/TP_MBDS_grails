@@ -30,7 +30,7 @@
             <td><g:link class="show" action="show" resource="${cust}">${cust.name}</g:link></td>
             <td>
                 <g:each in="${cust.pois}" var="custcust">
-                    <p>${custcust.name}</p>
+                    <p><g:link class="show" action="show" resource="${custcust}">${custcust.name}</g:link></p>
                 </g:each></td>
             <td>
                 <g:each in="${cust.images}" var="custcust">
