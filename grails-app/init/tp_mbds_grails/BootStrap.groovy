@@ -7,12 +7,13 @@ class BootStrap {
 
     def init = { servletContext ->
 
-
+        //Création de l'administrateur
         SecUser adminUser = new SecUser(username: "IamRoot", password: "root", enabled: true).save(flush:true)
         SecUser adminUser2 = new SecUser(username: "IamRoot2", password: "root", enabled: true).save(flush:true)
         SecUser adminUser3 = new SecUser(username: "IamRoot3", password: "root", enabled: true).save(flush:true)
         SecUser adminUser4 = new SecUser(username: "IamRoot4", password: "root", enabled: true).save(flush:true)
         SecUser adminUser5 = new SecUser(username: "IamRoot5", password: "root", enabled: true).save(flush:true)
+
         SecUser moderatorUser = new SecUser(username: "IamModerator", password: "moderator", enabled: true).save(flush:true)
         SecUser moderatorUser2 = new SecUser(username: "IamModerator2", password: "moderator", enabled: true).save(flush:true)
         SecUser moderatorUser3 = new SecUser(username: "IamModerator3", password: "moderator", enabled: true).save(flush:true)
@@ -45,9 +46,9 @@ class BootStrap {
 
         SecUserSecRole.create(moderatorUser3,roleModer,true)
 
-
+        //Création de 10 utilisateurs
         SecUser utilUser
-        for (def i = 0; i < 5; i++) {
+        for (def i = 0; i < 10; i++) {
             utilUser = new SecUser(username: "IamUser"+i, password: "user", enabled: true).save(flush:true)
             SecUserSecRole.create(utilUser,roleUser,true)
             utilUser = null

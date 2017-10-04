@@ -90,12 +90,27 @@ class SecUserController {
 
         secUser.save flush:true
 
-        SecRole secRole
-
+        def newRolesId = []
         for (def idRole : params.secroles) {
-            SecRole role = SecRole.findById(idRole)
-            SecUserSecRole.create(secUser,role,true)
+            newRolesId.push(idRole)
+            SecRole addrole = SecRole.findById(idRole)
+            SecUserSecRole.create(secUser,addrole,true)
         }
+
+        def allRolesId = []
+        for(SecRole secrole : SecRole.list()) {
+            allRolesId.push(secrole.id)
+        }
+
+            for (def j = 0; j < newRolesId.size(); j++) {
+                if (allRolesId[j] != newRolesId[j]) {
+                    //println 'aloa'
+                }
+            }
+
+
+        //println 'newRolesId ='+newRolesId
+        //println 'allRolesId ='+allRolesId
 
         request.withFormat {
             form multipartForm {
