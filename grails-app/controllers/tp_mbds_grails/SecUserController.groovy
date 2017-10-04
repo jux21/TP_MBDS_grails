@@ -28,7 +28,7 @@ class SecUserController {
         respond secUser
     }
 
-    @Secured(['ROLE_ADMIN','ROLE_MODER'])
+    @Secured(['ROLE_ADMIN'])
     def create() {
         respond new SecUser(params), model:[secroles:SecRole.list()]
     }
@@ -121,7 +121,7 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ADMIN','ROLE_MODER'])
+    @Secured(['ROLE_ADMIN'])
     @Transactional
     def delete(SecUser secUser) {
 

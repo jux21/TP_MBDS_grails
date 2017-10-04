@@ -10,8 +10,7 @@
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                <li><a href="${createLink(uri: '/SecUser/list')}"><g:message code="Liste des utilisateurs"/></a></li>
             </ul>
         </div>
         <div id="edit-secUser" class="content scaffold-edit" role="main">
@@ -39,11 +38,17 @@
                         <label>Mot de pase</label>
                         <input value="${this.secUser.password}" type="text" name="password" value="" required="" id="password" >
                     </div>
-                    <label>Rôle :</label>
-                    <g:select name="secroles"
-                              from="${secroles}"
-                              value="${this.secUser.authorities*.id}"
-                              optionKey="id" />
+                    <sec:ifLoggedIn>
+                        <sec:ifAllGranted roles="ROLE_ADMIN">
+
+                            <label>Rôle :</label>
+                            <g:select name="secroles"
+                                      from="${secroles}"
+                                      value="${this.secUser.authorities*.id}"
+                                      optionKey="id" />
+                        </sec:ifAllGranted>
+                    </sec:ifLoggedIn>
+
                 </div>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
