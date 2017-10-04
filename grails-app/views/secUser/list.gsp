@@ -34,7 +34,7 @@
         <sec:ifLoggedIn>
             <sec:ifAllGranted roles="ROLE_MODER">
                 <tr>
-                    <g:if test="${cust.authorities.toString().contains('ROLE_USER')}">
+                    <g:if test="${cust.authorities.size()==1 && cust.authorities.toString().contains('ROLE_USER')}">
                         <td><g:link class="show" action="show" resource="${cust}">${cust.username}</g:link></td>
                         <td>${cust.password}</td>
                         <td>

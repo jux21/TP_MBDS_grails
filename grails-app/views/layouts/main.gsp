@@ -47,25 +47,12 @@
                     </ul>
                 </li>
 
-
-                <sec:ifLoggedIn>
-                    <sec:ifAllGranted roles="ROLE_ADMIN">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
-                        </ul>
-                    </li>
-                    </sec:ifAllGranted>
-                    <sec:ifAllGranted roles="ROLE_MODER">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
-                            </ul>
-                        </li>
-                    </sec:ifAllGranted>
-                </sec:ifLoggedIn>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateurs<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/secUser/list">Afficher la liste des utilisateurs</a></li>
+                    </ul>
+                </li>
 
 
             </ul>
