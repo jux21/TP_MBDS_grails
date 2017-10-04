@@ -16,12 +16,14 @@ class BootStrap {
         SecRole roleAdmin = new SecRole(authority: 'ROLE_ADMIN').save(flush:true)
         SecUserSecRole.create(adminUser,roleAdmin,true)
 
+        SecRole roleModer = new SecRole(authority: 'ROLE_MODER').save(flush:true)
+        
         SecUserSecRole.create(adminUser2,roleAdmin,true)
         SecUserSecRole.create(moderatorUser2,roleModer,true)
 
         //Création de 5 modérateur
         SecUser moderatorUser
-        SecRole roleModer = new SecRole(authority: 'ROLE_MODER').save(flush:true)
+
         for (def i = 0; i < 5; i++) {
             moderatorUser = new SecUser(username: "IamModerator", password: "moderator", enabled: true).save(flush:true)
             SecUserSecRole.create(moderatorUser,roleModer,true)
