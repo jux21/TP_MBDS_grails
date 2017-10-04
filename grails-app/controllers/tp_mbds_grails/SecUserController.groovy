@@ -96,38 +96,47 @@ class SecUserController {
 
         secUser.save flush:true
 
-        if(params.secroles != "") {
-            def newrolesId = params.secroles
+        def newrolesId = params.secroles
 
-            for (def idRole : params.secroles) {
-                SecRole role = SecRole.findById(idRole)
-                SecUserSecRole.create(secUser, role, true).save()
-            }
+        for (def idRole : params.secroles) {
+
+
+        }
+
+        if(newrolesId) {
+
+
+
 
             for (SecRole role : secUser.getAuthorities()) {  // Je parcours les anciens roles
                 for (def i = 0; i < newrolesId.size(); i++) { // Pour chaque ancien role je parcours les nouveaux role
                     if (newrolesId[i].toString() != role.id.toString()) {
                         // Si le nouveau role n'est pas dans les anciens je le vire
-                       // SecUserSecRole.remove(secUser, role)
+                        //SecUserSecRole.remove(secUser, role)
+
                         println("je supprime " + role.id)
                     }
+
+                    SecRole newrole = SecRole.findById(newrolesId[i])
+
+                    SecUserSecRole.create(secUser,newrole,true)
+
+
+                    }
                 }
+
+
                 //SecUserSecRole.remove(secUser, role)
                 //oldrolesId.push(role.id)
 
-            }
+                // secUser.save flush:true
 
 
+                println("\n")
 
-
-           // secUser.save flush:true
-
-
-
-            println("\n")
         }
 
-        secUser.save flush:true
+        newrolesId = null
 
         request.withFormat {
             form multipartForm {
