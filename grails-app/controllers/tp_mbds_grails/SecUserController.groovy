@@ -58,8 +58,6 @@ class SecUserController {
 
         secUser.save flush:true
 
-        SecRole secRole
-
         for (def idRole : params.secroles) {
             SecRole role = SecRole.findById(idRole)
             SecUserSecRole.create(secUser,role,true)
@@ -98,27 +96,38 @@ class SecUserController {
 
         secUser.save flush:true
 
-        def newRolesId = []
-        for (def idRole : params.secroles) {
-            newRolesId.push(idRole)
-            SecRole addrole = SecRole.findById(idRole)
-            SecUserSecRole.create(secUser,addrole,true)
-        }
+        if(params.secroles != "") {
+            def newrolesId = params.secroles
 
-        def allRolesId = []
-        for(SecRole secrole : SecRole.list()) {
-            allRolesId.push(secrole.id)
-        }
+            for (def idRole : params.secroles) {
+                SecRole role = SecRole.findById(idRole)
+                SecUserSecRole.create(secUser, role, true).save()
+            }
 
-            for (def j = 0; j < newRolesId.size(); j++) {
-                if (allRolesId[j] != newRolesId[j]) {
-                    //println 'aloa'
+            for (SecRole role : secUser.getAuthorities()) {  // Je parcours les anciens roles
+                for (def i = 0; i < newrolesId.size(); i++) { // Pour chaque ancien role je parcours les nouveaux role
+                    if (newrolesId[i].toString() != role.id.toString()) {
+                        // Si le nouveau role n'est pas dans les anciens je le vire
+                       // SecUserSecRole.remove(secUser, role)
+                        println("je supprime " + role.id)
+                    }
                 }
+                //SecUserSecRole.remove(secUser, role)
+                //oldrolesId.push(role.id)
+
             }
 
 
-        //println 'newRolesId ='+newRolesId
-        //println 'allRolesId ='+allRolesId
+
+
+           // secUser.save flush:true
+
+
+
+            println("\n")
+        }
+
+        secUser.save flush:true
 
         request.withFormat {
             form multipartForm {
