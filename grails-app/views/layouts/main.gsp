@@ -135,20 +135,24 @@
                     <h5>Init</h5>
                     <div class="divider"></div>
                     <h6>POI et POIsGroup</h6>
-                    <li>Création de 10 POI et 10 POIsGroup dans une boucle for</li>
+                    <li>Création de 100 POI répartis dans 10 POIsGroup dans une boucle for</li>
                     <h6>SecUser</h6>
-                    <li>Création de 3 SecUser : 1 administrateur, 1 modérateur, 1 utilisateur</li>
+                    <li>Création de 18 SecUser : 5 administrateurs, 3 modérateurs et 10 utilisateurs</li>
+                    <li>Certains SecUser ont 3, 2 ou un seul rôle (voir Bootstrap)</li>
                 </div>
                 <div class="col s12 m12 l12">
                     <h5>Sessions</h5>
                     <div class="divider"></div>
                     <h6>Utilisation de Spring Security</h6>
-                    <li>Page d'authentification personnilisée</li>
+                    <li>Page d'authentification personnalisée</li>
+                    <li>Déconnexion : destruction de la session</li>
                     <h6>Gestion des rôles</h6>
                     <li>Tout les SecUser de l'app peuvent modifier leur profil</li>
                     <li>Les administrateurs accèdent à toute les fonctionnalités de l'app</li>
-                    <li>//TODO Les modérateurs ne peuvent pas voir les autres utilisateurs</li>
-                    <li>//TODO Les utilisateurs ne peuvent que consulter la liste des POIs et des POIsGroups</li>
+                    <li>Les utilisateurs ne peuvent que consulter la liste des POIs et des POIsGroups (pas le menu utilisateur)</li>
+                    <li>Les administrateurs peuvent voir et modifier tous les utilisateurs</li>
+                    <li>Les modérateur peuvent seulement modifier les comptes user</li>
+                    <li>Pas d'élévation de privilèges depuis un compte modérateur</li>
                 </div>
                 <div class="col s12 m12 l12">
                     <h5>CRUD</h5>
@@ -158,33 +162,44 @@
                     <li>Lecture Nom, Description, Latitude, Longitude, Association avec 1 ou plusieurs groupe(s)</li>
                     <li>Creation, Update Nom, Description, Latitude, Longitude, Association avec 1 ou plusieurs groupe(s) </li>
                     <li>Suppression d'un POI, de ses références vers ses groupes et des ses images </li>
+                    <li>POI et Groupes associés cliquables</li>
                     <h6>POIsGroup Create / Read / Update / Delete </h6>
                     <li>Création d'un POIsGroup avec Nom </li>
                     <li>Creation, Update Nom, Association avec 1 ou plusieurs POI </li>
                     <li>Suppression d'un POIsGroup, de ses références vers ses POIs et des ses images </li>
+                    <li>Groupes et POI associés cliquables</li>
                     <h6>SecUser Create / Read / Update</h6>
-                    <li>Affichage de la liste des utilisateurs de leurs rôles </li>
-                    <li>Create / Update UserName et Password </li>
-                    <li>//TODO Delete secUser</li>
-                    <li>//TODO Update and Create SecUser with SecRole</li>
-                    <h6>Ajout d'image</h6>
+                    <li>Affichage de la liste des utilisateurs et de leurs rôles </li>
+                    <li>Create / Update UserName et Password chiffré </li>
+                    <li>Delete secUser et son ou ses roles</li>
+                    <li>Create SecUser with SecRole</li>
+                    <li>Update secUser ajout de rôle ou suppression de rôle (l'un ou l'autre)</li>
+                    <h6>Image</h6>
                     <li>Upload d'images sur Apache </li>
-                    <li>Download d'images sur Apache </li>
+                    <li>Download d'images depuis Apache </li>
+                    <li>Gestion des multiples images sur les POI et Groupe pour l'affichage</li>
                 </div>
                 <div class="col s12 m12 l12">
                     <h5>UrlMapping</h5>
                     <div class="divider"></div>
-                    <h6>Clean URL</h6>
-                    <li>//TODO Redirections et clean URLs (à spécifier)</li>
+                    <li>Redirection des pages index vers les vues list (POI/Group/SecUser)</li>
+                    <li>Redirection des racines des controlleurs vers les vues list (POI/Group/SecUser)</li>
+                    <li>Redirection de la racine du projet et de /login vers la page d'authentification ou d'index du projet</li>
                 </div>
                 <div class="col s12 m12 l12">
                     <h5>Bonus</h5>
                     <div class="divider"></div>
                     <h6>Google Map</h6>
                     <li>Visualisation du POI sur une Google Map</li>
+                    <li>Visualisation des POI du groupe sélectionné sur une Google Map</li>
+                    <li>Centrage de la map sur le premier POI du groupe sur une Google Map</li>
                     <li>Mise à jour du POI en déplaçant le marker de la Google Map</li>
-                    <h6>Ajax</h6>
-                    <li>//TODO ajouter Ajax sur l'app + drag'n'drop</li>
+                </div>
+                <div class="col s12 m12 l12">
+                    <h5>Perspectives d'amélioration</h5>
+                    <div class="divider"></div>
+                    <li>Permettre d'ajouter/supprimer des rôles en une seule action</li>
+                    <li>Ajouter Ajax sur l'app + drag'n'drop</li>
                 </div>
             </ul>
         </div>

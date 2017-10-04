@@ -110,16 +110,19 @@ class SecUserController {
 
             for (SecRole role : secUser.getAuthorities()) {  // Je parcours les anciens roles
                 for (def i = 0; i < newrolesId.size(); i++) { // Pour chaque ancien role je parcours les nouveaux role
-                    if (newrolesId[i].toString() != role.id.toString()) {
-                        // Si le nouveau role n'est pas dans les anciens je le vire
-                        //SecUserSecRole.remove(secUser, role)
-
-                        println("je supprime " + role.id)
-                    }
 
                     SecRole newrole = SecRole.findById(newrolesId[i])
 
                     SecUserSecRole.create(secUser,newrole,true)
+
+                    if (newrolesId[i].toString() != role.id.toString()) {
+                        // Si le nouveau role n'est pas dans les anciens je le vire
+                        //SecUserSecRole.remove(secUser, role)
+
+                        //println("je supprime " + role.id)
+                    }
+
+
 
 
                     }
