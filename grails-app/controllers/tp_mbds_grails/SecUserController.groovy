@@ -91,26 +91,36 @@ class SecUserController {
         secUser.save flush:true
 
         def newRolesId = []
+
+        SecRole secRole
+
         for (def idRole : params.secroles) {
             newRolesId.push(idRole)
-            SecRole addrole = SecRole.findById(idRole)
-            SecUserSecRole.create(secUser,addrole,true)
+            SecRole role = SecRole.findById(idRole)
+            SecUserSecRole.create(secUser,role,true)
         }
+
+        //Tentatives début - retirer rôle dynamique dans update
 
         def allRolesId = []
         for(SecRole secrole : SecRole.list()) {
             allRolesId.push(secrole.id)
         }
 
-            for (def j = 0; j < newRolesId.size(); j++) {
-                if (allRolesId[j] != newRolesId[j]) {
-                    //println 'aloa'
-                }
+        println 'newRolesId ='+newRolesId
+
+        for (def j = 0; j < allRolesId.size(); j++) {
+            println j+1 +' - ' + newRolesId[j]
+            if(newRolesId[j] < j) {
+                newRolesId[j-1] = newRolesId[j]
+                newRolesId[j+1] = 20000000
             }
+        }
 
+        println 'newRolesId ='+newRolesId
+        println 'allRolesId ='+allRolesId
 
-        //println 'newRolesId ='+newRolesId
-        //println 'allRolesId ='+allRolesId
+        //Tentatives fin - retirer rôle dynamique dans update
 
         request.withFormat {
             form multipartForm {

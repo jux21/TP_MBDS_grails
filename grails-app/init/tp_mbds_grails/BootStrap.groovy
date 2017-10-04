@@ -17,7 +17,7 @@ class BootStrap {
         SecUserSecRole.create(adminUser,roleAdmin,true)
 
         SecRole roleModer = new SecRole(authority: 'ROLE_MODER').save(flush:true)
-        
+
         SecUserSecRole.create(adminUser2,roleAdmin,true)
         SecUserSecRole.create(moderatorUser2,roleModer,true)
 
