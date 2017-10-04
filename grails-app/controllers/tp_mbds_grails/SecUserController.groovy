@@ -1,6 +1,7 @@
 package tp_mbds_grails
 
 import grails.plugin.springsecurity.annotation.Secured
+import org.springframework.security.core.context.SecurityContextHolder
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -31,6 +32,13 @@ class SecUserController {
     @Secured(['ROLE_ADMIN'])
     def create() {
         respond new SecUser(params), model:[secroles:SecRole.list()]
+    }
+
+    @Secured(['IS_AUTHENTICATED_FULLY'])
+    def logOut()
+    {
+        SecurityContextHolder.getContext().setAuthentication(null);
+        render view:"/login/auth"
     }
 
     @Secured(['ROLE_ADMIN','ROLE_MODER'])
