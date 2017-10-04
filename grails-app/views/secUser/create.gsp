@@ -41,7 +41,8 @@
                     <g:select name="secroles"
                               from="${secroles}"
                               value=""
-                              optionKey="id" />
+                              optionKey="id"
+                              multiple="true" />
                 </div>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
