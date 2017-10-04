@@ -57,6 +57,7 @@
 
             </ul>
 
+
         </div>
 
     </div>
@@ -114,8 +115,10 @@
     </li>
     <li><a class="subheader">Gérer son profil</a></li>
     <li><a href="/secUser/edit/ ${sec.loggedInUserInfo(field: 'id')}"><i class="material-icons">person</i>Modifier mon profil</a></li>
-   <li><a href="#" >Déconnexion</a></li>
     <li><div class="divider"></div></li>
+    <li>
+        <g:link controller="SecUser" action="logOut">Déconnexion</g:link>
+    </li>
 
 
 
